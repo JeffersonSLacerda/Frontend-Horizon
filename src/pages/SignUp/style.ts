@@ -1,10 +1,11 @@
 import styled from 'styled-components';
 import { shade } from 'polished';
 
-import singInBackgroundImg from '../../assets/sign-in-background.jpg';
+import singUpBackgroundImg from '../../assets/sign-up-background.jpg';
 
 export const Container = styled.div`
   height: 100vh;
+  align-items: center;
 
   display: flex;
   align-items: stretch;
@@ -21,29 +22,24 @@ export const Content = styled.div`
 
   img {
     padding-right: 70px;
+    padding-top: 0px;
+    margin-top: -20px;
   }
 
   form {
-    margin: 80px 130px;
-    width: 340px;
+    margin: -10px 130px;
+    width: 320px;
     text-align: center;
 
     h1 {
       margin-bottom: 24px;
-    }
-
-    a {
-      color: #000;
-      display: block;
-      margin-top: 24px;
-      text-decoration: none;
     }
   }
 
   > a {
     color: #009bde;
     text-decoration: none;
-    margin: -50px 0 30px 230px;
+    margin: 15px 0 30px 200px;
 
     display: flex;
     align-items: center;
@@ -61,6 +57,6 @@ export const Content = styled.div`
 
 export const Background = styled.div`
   flex: 1;
-  background: url(${singInBackgroundImg}) no-repeat center;
+  background: url(${singUpBackgroundImg}) no-repeat center;
   background-size: cover;
 `;
