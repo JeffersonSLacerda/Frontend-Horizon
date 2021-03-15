@@ -9,6 +9,7 @@ import getValidationErrors from '../../utils/getValidationErrors';
 import logoImg from '../../assets/logo.svg';
 
 import Input from '../../components/Input';
+import Select from '../../components/SelectCityState';
 import Button from '../../components/Button';
 
 import { Container, Content, Background } from './style';
@@ -57,7 +58,7 @@ const SignUp: React.FC = () => {
             placeholder="Senha"
           />
 
-          <Input name="city" icon={FiHome} placeholder="City" />
+          <Select name="city" icon={FiHome} placeholder="City" />
           <Button type="submit">Cadastrar</Button>
         </Form>
 

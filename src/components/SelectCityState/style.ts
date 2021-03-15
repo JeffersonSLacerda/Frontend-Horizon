@@ -14,10 +14,10 @@ export const Container = styled.div`
     margin-top: 8px;
   }
 
-  input {
+  select {
     flex: 1;
     border: 0;
-    background: transparent;
+    /* background: transparent; */
     padding-left: 10px;
   }
 `;
