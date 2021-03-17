@@ -1,7 +1,13 @@
 import styled from 'styled-components';
 import { shade } from 'polished';
 
+import Tooltip from '../../components/Tooltip';
+
 import singUpBackgroundImg from '../../assets/sign-up-background.jpg';
+
+// interface ContainerSelectProps {
+//   isErrored: boolean;
+// }
 
 export const Container = styled.div`
   height: 100vh;
@@ -59,4 +65,71 @@ export const Background = styled.div`
   flex: 1;
   background: url(${singUpBackgroundImg}) no-repeat center;
   background-size: cover;
+`;
+
+export const ContainerSelect = styled.div`
+  border-radius: 10px 0 10px 0;
+  border: 1px solid;
+  padding: 16px;
+  width: 100%;
+  padding-left: 10px;
+
+  display: flex;
+  align-items: center;
+
+  & + div {
+    margin-top: 8px;
+  }
+
+  svg {
+    margin-right: 16px;
+  }
+
+  > div {
+    flex: 1;
+    margin-right: 2px;
+    margin-left: -7px;
+    max-width: 65%;
+
+    .react-select-city {
+      [class^='react-select__indicators'] {
+        padding-right: -15px;
+        svg {
+          margin-right: 0px;
+        }
+      }
+    }
+
+    .react-select-uf {
+      [class^='react-select__indicators'] {
+        padding-right: -15px;
+        svg {
+          margin-right: 0px;
+        }
+      }
+    }
+
+    & + div {
+      margin-left: 0;
+      max-width: 30%;
+    }
+  }
+`;
+
+export const Error = styled(Tooltip)`
+  height: 20px;
+  margin-left: 16px;
+
+  svg {
+    margin: 0;
+  }
+
+  span {
+    background: #c53030;
+    visibility: hidden;
+
+    &::before {
+      border-color: #c53030 transparent;
+    }
+  }
 `;
