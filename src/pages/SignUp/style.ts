@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import { shade } from 'polished';
 
 import Tooltip from '../../components/Tooltip';
@@ -8,11 +8,9 @@ import singUpBackgroundImg from '../../assets/sign-up-background.jpg';
 // interface ContainerSelectProps {
 //   isErrored: boolean;
 // }
-
 export const Container = styled.div`
   height: 100vh;
   align-items: center;
-
   display: flex;
   align-items: stretch;
 `;
@@ -25,27 +23,53 @@ export const Content = styled.div`
 
   width: 100%;
   max-width: 700px;
+`;
+
+const appearFromRigth = keyframes`
+  from{
+    opacity: 0;
+    transform: translateY(50%):
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0):
+  }
+`;
+
+export const AnimetedContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  animation: ${appearFromRigth} 1s;
 
   img {
-    padding-right: 70px;
-    padding-top: 0px;
     margin-top: -20px;
+    margin-right: 30px;
   }
 
   form {
-    margin: -10px 130px;
-    width: 320px;
+    margin: -40px 50px 20px 60px;
+    width: 340px;
     text-align: center;
 
     h1 {
       margin-bottom: 24px;
+    }
+
+    a {
+      color: #000;
+      display: block;
+      margin-top: 24px;
+      text-decoration: none;
     }
   }
 
   > a {
     color: #009bde;
     text-decoration: none;
-    margin: 15px 0 30px 200px;
+    margin: -20px 30px 10px 0px;
 
     display: flex;
     align-items: center;

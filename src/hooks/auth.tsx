@@ -1,4 +1,4 @@
-import React, { createContext, useCallback, useState } from 'react';
+import React, { createContext, useCallback, useContext, useState } from 'react';
 import api from '../services/api';
 
 interface AuthState {
@@ -11,14 +11,13 @@ interface SignInCredencials {
   password: string;
 }
 
-interface AuthContextData {
+interface AuthData {
   user: object;
   signIn(credentials: SignInCredencials): Promise<void>;
+  signOut(): void;
 }
 
-export const AuthContext = createContext<AuthContextData>(
-  {} as AuthContextData
-);
+const Auth = createContext<AuthData>({} as AuthData);
 
 export const AuthProvider: React.FC = ({ children }) => {
   const [data, setData] = useState<AuthState>(() => {
@@ -38,17 +37,37 @@ export const AuthProvider: React.FC = ({ children }) => {
       password,
     });
 
-    const { user, token } = response.data;
+    const { userWithoutPassword, token } = response.data;
 
     localStorage.setItem('@Hosrizon: token', token);
-    localStorage.setItem('@Hosrizon: user', JSON.stringify(user));
+    localStorage.setItem(
+      '@Hosrizon: user',
+      JSON.stringify(userWithoutPassword)
+    );
 
-    setData({ token, user });
+    setData({ token, user: userWithoutPassword });
+  }, []);
+
+  const signOut = useCallback(() => {
+    localStorage.removeItem('@Hosrizon: token');
+    localStorage.removeItem('@Hosrizon: user');
+
+    setData({} as AuthState);
   }, []);
 
   return (
-    <AuthContext.Provider value={{ user: data.user, signIn }}>
+    <Auth.Provider value={{ user: data.user, signIn, signOut }}>
       {children}
-    </AuthContext.Provider>
+    </Auth.Provider>
   );
 };
+
+export function useAuth(): AuthData {
+  const context = useContext(Auth);
+
+  if (!context) {
+    throw new Error('useAuth must be used with in an AuthProvider');
+  }
+
+  return context;
+}

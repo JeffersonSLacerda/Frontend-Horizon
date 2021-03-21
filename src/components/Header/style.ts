@@ -1,8 +1,9 @@
 import styled from 'styled-components';
 
-export const BlackLine = styled.div`
-  width: 100%;
-  border: solid 4px #000;
+export const Search = styled.div`
+  width: 200px;
+  height: 80px;
+  border: solid 1px #000;
   margin-top: 5px;
   display: flex;
   flex-direction: row;
