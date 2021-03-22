@@ -1,10 +1,10 @@
 import React from 'react';
 
-import Header from '../../components/Header';
+// import Header from '../../components/Header';
 
 const Dashboard: React.FC = () => (
   <>
-    <Header />
+    <h1> Dashboard </h1>
   </>
 );
 

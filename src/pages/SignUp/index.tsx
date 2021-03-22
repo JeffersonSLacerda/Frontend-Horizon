@@ -4,7 +4,11 @@ import { FormHandles } from '@unform/core';
 import { Form } from '@unform/web';
 import * as Yup from 'yup';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
+
+import api from '../../services/api';
+
+import { useToast } from '../../hooks/toast';
 
 import getValidationErrors from '../../utils/getValidationErrors';
 
@@ -32,9 +36,20 @@ interface CityData {
   nome: string;
 }
 
+interface SignUpFormData {
+  firstName: string;
+  lastName: string;
+  email: string;
+  password: string;
+  city: string;
+  uf: string;
+}
+
 const SignUp: React.FC = () => {
   const formRef = useRef<FormHandles>(null);
   const selectRef = useRef<HTMLSelectElement>(null);
+  const { addToast } = useToast();
+  const history = useHistory();
 
   const [ufOptions, setUfOptions] = useState<Option[]>([]);
   const [cityOptions, setCityOptions] = useState<Option[]>([]);
@@ -48,8 +63,8 @@ const SignUp: React.FC = () => {
 
     const data = response.data.map((uf: UfData) => {
       return {
-        value: uf.id,
-        label: `${uf.sigla}`,
+        value: uf.sigla,
+        label: uf.sigla,
       };
     });
 
@@ -63,7 +78,7 @@ const SignUp: React.FC = () => {
 
     const data = response.data.map((city: CityData) => {
       return {
-        value: city.id,
+        value: city.nome,
         label: city.nome,
       };
     });
@@ -71,30 +86,62 @@ const SignUp: React.FC = () => {
     setCityOptions(data);
   }, []);
 
-  const handleSubmit = useCallback(async (data: object) => {
-    try {
-      formRef.current?.setErrors({});
+  const handleSubmit = useCallback(
+    async (data: SignUpFormData) => {
+      try {
+        formRef.current?.setErrors({});
 
-      const schema = Yup.object().shape({
-        firstName: Yup.string().required('Primeiro nome obrigatório'),
-        lastName: Yup.string().required('Último nome obrigatório'),
-        email: Yup.string()
-          .required('E-mail obrigatório')
-          .email('Digite um email válido'),
-        password: Yup.string().min(6, 'Mínimo de 6 dígitos'),
-        city: Yup.string().required('Selecione uma cidade'),
-        uf: Yup.string().required('Selecione um Estado'),
-      });
+        const schema = Yup.object().shape({
+          firstName: Yup.string().required('Primeiro nome obrigatório'),
+          lastName: Yup.string().required('Último nome obrigatório'),
+          email: Yup.string()
+            .required('E-mail obrigatório')
+            .email('Digite um email válido'),
+          password: Yup.string().min(6, 'Mínimo de 6 dígitos'),
+          city: Yup.string().required('Selecione uma cidade'),
+          uf: Yup.string().required('Selecione um Estado'),
+        });
 
-      await schema.validate(data, {
-        abortEarly: false,
-      });
-    } catch (err) {
-      const errors = getValidationErrors(err);
+        await schema.validate(data, {
+          abortEarly: false,
+        });
 
-      formRef.current?.setErrors(errors);
-    }
-  }, []);
+        await api.post('/users', {
+          firstName: data.firstName,
+          lastName: data.lastName,
+          email: data.email,
+          password: data.password,
+          city: data.city,
+          uf: data.uf,
+          profile: 'client',
+          isAtivo: true,
+        });
+
+        history.push('/');
+
+        addToast({
+          type: 'success',
+          title: 'Cadastro realizado!',
+          description: 'Você já pode fazer seu login na Horizon',
+        });
+      } catch (err) {
+        if (err instanceof Yup.ValidationError) {
+          const errors = getValidationErrors(err);
+
+          formRef.current?.setErrors(errors);
+
+          return;
+        }
+
+        addToast({
+          type: 'error',
+          title: 'Erro no cadastro',
+          description: 'Ocorreu um erro ao tentar cadastrar, tente novamente',
+        });
+      }
+    },
+    [addToast, history]
+  );
 
   const handleInputFocus = useCallback(() => {
     setIsFocused(true);
