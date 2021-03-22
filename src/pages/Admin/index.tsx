@@ -1,6 +1,7 @@
 import React from 'react';
 import { FiPower, FiMail, FiUpload, FiImage, FiSearch } from 'react-icons/fi';
 import { HiBan } from 'react-icons/hi';
+import { GrUserAdmin } from 'react-icons/gr';
 
 import {
   Header,
@@ -137,6 +138,9 @@ const Admin: React.FC = () => {
                   </a>
                   <a href="/">
                     <FiMail size={20} color="#009bde" />
+                  </a>
+                  <a href="/">
+                    <GrUserAdmin size={20} />
                   </a>
                 </div>
               </div>

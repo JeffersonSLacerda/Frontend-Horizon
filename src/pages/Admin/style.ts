@@ -253,6 +253,11 @@ export const Users = styled.div`
   margin-top: 5px;
 
   .content {
+    #searchUser {
+      border-radius: 10px 0 10px 0;
+      padding: 3px;
+    }
+
     button {
       margin-left: 5px;
       background: transparent;
@@ -263,6 +268,7 @@ export const Users = styled.div`
       display: flex;
       flex-direction: column;
       border: 2px solid;
+      border-radius: 5px;
       margin: 3px;
 
       .name {
