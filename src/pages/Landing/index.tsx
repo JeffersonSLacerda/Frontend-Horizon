@@ -47,7 +47,7 @@ const Buttons = () => {
 const Content = () => {
   return (
     <div id='content'>
-      <div className='right-block'>
+      <div className='left-block'>
         <Input />
         <Buttons />
       </div>

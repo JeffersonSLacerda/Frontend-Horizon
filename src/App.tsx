@@ -4,7 +4,7 @@ import "./pages/Landing/style.scss"
 import "./components/LandingHeader/styles.scss"
 import GlobalStyle from './styles/global';
 import 'react-slideshow-image/dist/styles.css'
-
+import './assets/fonts/Milliard/font-face.css'
 import Routes from './routes';
 
 import AppProvider from './hooks';
