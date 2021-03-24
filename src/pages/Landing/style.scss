@@ -1,0 +1,96 @@
+$blue: #009bde;
+
+
+#input{
+    margin: 1em 2em 1em 2em;
+    h1 {
+        margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+        opacity: 0;        
+        animation: 
+          fade 3.5s forwards;
+      }
+      
+      /* The typing effect */
+      @keyframes fade {
+        from { opacity: 0 }
+        to { opacity: 1 }
+      }
+      
+      
+    h1{
+        padding: 20px;
+        color: #fff;
+    }
+}
+
+
+#content {
+    display: flex;
+    overflow: hidden;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height: 100vh;
+    background-image: url("../../assets/dashboard1.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    .slide-container{
+        z-index: 1000;
+        display: flex;
+        flex-wrap: nowrap;
+        flex-direction: row;
+        background-color: #009bde;
+        
+        img{
+            flex-wrap: nowrap;
+
+            height: 100%;
+            width: 250px;
+            border: 0.2em solid white;
+        }
+        
+    }
+    .right-block{
+        align-self: flex-start;
+        margin: 2em 0 0 0;
+        padding: 3em 2em;
+        height: 20vw;
+        font-size: 16px;
+        width: 50vw;
+        @media only screen and (min-height: 768px) {
+            margin-bottom: 10vw;
+        }
+        animation: from-right 1s forwards;
+    }
+    .buttons{
+        display: flex;
+        flex-direction: row;
+        height: 5vw;
+        width: 100%;
+        align-items: center;
+    }
+    button{
+        color: white;
+        margin: 20px 30px 10px 20px;
+        width: 20vw;
+        height: 50px;
+        border: 3px solid white;
+        background-color: transparent;
+    }
+    input {
+        border-radius: 0px 30px 0px 30px;
+        height: 50px;
+        width: 100%;
+        outline: none;
+        border: none;
+        text-align: center;
+    }
+    .bg {
+        padding: 2em;
+        z-index: 5000;
+        display: flex;
+        background-color: rgba(123, 255, 222, 1);
+        height: 100%;
+        width: 100%;
+    }
+}

@@ -1,0 +1,72 @@
+$blue: #009bde;
+
+#header {
+    display: flex;
+    flex-direction: row;
+    height: 5vw;
+    justify-content: space-between;
+    align-items: center;
+    top: 0;
+    width: 100%;
+    position: fixed;
+    background-color: transparent !important;
+    img {
+        padding-left: 2em;
+        margin: 10px auto auto 10px;
+        height: 100%;
+        width: fit-content;
+    }
+    .buttons {
+        
+        display: flex;
+        width: 35vw;
+    }
+    button {
+        border: none;
+        background-color: transparent;
+        color: white;
+        cursor: pointer;
+        display: inline-block;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 45px;
+        margin-top: 20px;
+        max-width: 200px;
+        padding: 1em;
+        text-decoration: none;
+        text-transform: uppercase;
+        letter-spacing: 0;
+        transition: letter-spacing 200ms;
+        &:hover {
+            letter-spacing: 5px;
+            text-decoration: none;
+        }
+        &:active {
+            letter-spacing: 5px;
+        }
+        &:after,
+        &:before {
+            backface-visibility: hidden;
+            border: 1px solid rgba($blue, 0);
+            bottom: 0px;
+            content: " ";
+            display: block;
+            margin: 0 auto;
+            position: relative;
+            transition: all 280ms ease-in-out;
+            width: 0;
+        }
+        &:hover:after,
+        &:hover:before {
+            backface-visibility: hidden;
+            border-color: $blue;
+            transition: width 350ms ease-in-out;
+            width: 70%;
+        }
+    }
+
+    button:focus {
+        outline: none;
+    }
+    
+}
