@@ -1,0 +1,32 @@
+#header{
+  display: flex;
+  top: 0;
+  position: fixed;
+  height: 8vw;
+  width: 100%;
+  justify-content: space-around;
+  .left-box{
+    display: flex;
+    flex-direction: column;
+    padding: 1.25em;
+  }
+  .links-left{
+    display: flex;
+    flex-direction: row;
+  }
+  img{
+    margin: auto;
+    margin-right: 10px;
+    height: min-content;
+    width: min-content;
+  }
+  ul{
+    display: flex;
+    flex-direction: row;
+  
+  }
+  li{
+    margin: 0 15px 0 15px;
+  }
+  
+}

@@ -1,0 +1,58 @@
+.step {
+    width: 100vh;
+    .stepButtons{
+        display: flex;
+        flex-direction: row;
+    }
+    .radiobutton{
+
+    }
+    .checks{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        margin-bottom: 1em;
+    }
+
+    button{
+        font-size: 18px;
+        border: none;
+        margin: 1em auto;
+        padding: 0.5em 2em;
+        border-radius: 25px;
+        background-color: var(--blue);
+        color: white;
+    }
+}
+
+#new {
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: flex-end;
+    background-color: white;
+    text-align: center;
+    .label{
+        padding-top: 10px;
+    }
+    .step {
+        display: flex;
+        flex-direction: column;
+        margin-top: 1em;
+        padding: 1em 2em;
+        p {
+            margin: 1em 0 3em 0;
+        }
+        a{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 40px;
+            border: none;
+            background-color: var(--blue);
+            border-radius: 50%;
+            margin-left: 5px;
+            color: white;
+        }
+    }
+}

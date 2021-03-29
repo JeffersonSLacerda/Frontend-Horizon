@@ -1,0 +1,22 @@
+$blue: #009bde;
+#search-box{
+  display: flex;
+  flex-direction: row;
+  background-color: $blue;
+  height: 30px;
+  width: 85%;
+  margin: auto;
+  border-radius: 25px;
+  input{
+    padding: 10px;
+    font-size: small;
+    width: 80%;
+    margin: 2px;
+    border-radius: 25px;
+    border: none;
+  }
+  .icon{
+    color: white;
+    margin: auto;
+  }
+}

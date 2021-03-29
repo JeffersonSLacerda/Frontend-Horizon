@@ -1,23 +1,31 @@
 import React from 'react';
 
 import BrImage from '../../assets/brasil-icon -ptbr.png';
-import logoImg from '../../assets/logo.svg';
+import logoImg from '../../assets/Logo.png';
+import SearchBox from '../SearchBox'
+import "./style.scss"
 
-import { Content, Search } from './style';
+const links = ['Entrar', 'Cadastre-se', 'Contato']
 
 const Header: React.FC = () => (
-  <Content>
-    <div id="language">
-      <img src={BrImage} alt="PT-Br" />
+  <nav id='header'>
+    <div className='left-box'>
+      <div className='links-left'>
+        <img src={BrImage} />
+        <ul>
+          {
+            links.map((link) => (<li>
+              <a>{link}</a>
+            </li>))
+          }
+        </ul>
+      </div>
+      <SearchBox />
     </div>
-    <p>Entrar |</p>
-    <p>Cadastrar-se |</p>
-    <p>Contato</p>
-    <img src={logoImg} alt="Horizon" />
-    <Search>
-      <input placeholder="Busque um local" />
-    </Search>
-  </Content>
+
+    <img className='logo' src={logoImg} />
+
+  </nav>
 );
 
 export default Header;

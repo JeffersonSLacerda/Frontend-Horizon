@@ -1,29 +1,30 @@
 $blue: #009bde;
 
-
-#input{
+#input {
     margin: 1em 2em 1em 2em;
-    
+
     h1 {
         color: #fff;
         font-family: Milliard Book;
         opacity: 0;
         text-align: right;
         padding: 20px;
-        animation: 
-          fade 3.5s forwards;
-      }
-      
-      /* The typing effect */
-      @keyframes fade {
-        from { opacity: 0 }
-        to { opacity: 1 }
-      }
-      
-      
-    
-}
+        animation: fade 3.5s forwards;
+    }
 
+    /* The typing effect */
+    @keyframes fade {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+}
+.login {
+    height: 100vh;
+}
 
 #content {
     display: flex;
@@ -32,49 +33,47 @@ $blue: #009bde;
     justify-content: space-around;
     align-items: center;
     height: 100vh;
-    background-image: url("../../assets/dashboard1.jpg");
-    background-position: center;
-    background-repeat: no-repeat;
-    .slide-container{
+
+    .slide-container {
         z-index: 1000;
         display: flex;
         flex-wrap: nowrap;
         flex-direction: row;
         background-color: #009bde;
-        
-        img{
+
+        img {
             flex-wrap: nowrap;
 
             height: 100%;
             width: 250px;
             border: 0.2em solid white;
         }
-        
     }
-    .center{
+    .center {
         justify-content: center;
         align-items: center;
         display: flex;
         flex-direction: row;
         width: 100vw;
     }
-    .right-block{
+    .right-block {
         align-self: center;
         text-align: left;
-        width: 50vw;        
-        
-        p{
+        width: 50vw;
+        margin-top: 4em;
+        padding: auto 3em auto 2em;
+        p {
             font-family: Omne;
             color: white;
-            margin: 2em 0em;
+            padding-top: 2em;
         }
-        h1{
+        h1 {
             font-family: Milliard Book;
             color: white;
             width: 45vw;
         }
     }
-    .left-block{
+    .left-block {
         align-self: center;
         margin: 2em auto 0 0;
         padding: 0em 2em 0em;
@@ -85,18 +84,18 @@ $blue: #009bde;
         transition: transform 1s ease-in-out;
         margin-left: -20px;
     }
-    .buttons{
+    .buttons {
         display: flex;
         flex-direction: row;
         height: 5vw;
         width: 100%;
         align-items: center;
-        div{
+        div {
             width: 100vw;
         }
     }
-    
-    button{
+
+    button {
         font-family: Omnes;
         color: white;
         margin: 20px 30px 10px 20px;
@@ -104,15 +103,11 @@ $blue: #009bde;
         height: 50px;
         border: 3px solid white;
         background-color: transparent;
-        &:hover{
+        &:hover {
             background-color: rgba($color: black, $alpha: 0.2);
         }
     }
-    .viagemAleatoria:hover + .right-block{
 
-        opacity: 1;
-
-    }
     input {
         border-radius: 0px 30px 0px 30px;
         height: 50px;
@@ -125,17 +120,76 @@ $blue: #009bde;
         padding: 2em;
         z-index: 5000;
         display: flex;
-        background-color: rgba(123, 255, 222, 1);
         height: 100%;
         width: 100%;
     }
 
-    @keyframes from-right{
-        from{
+    @keyframes from-right {
+        from {
             transform: translateX(0px);
-        }to{
+        }
+        to {
             transform: translateX(10px);
-
         }
     }
+}
+#body {
+    margin-top: -10px;
+    background-image: url("../../assets/dashboard1.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#contact {
+    display: flex;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    font-family: Milliard Book;
+    flex-direction: column;
+    .form{
+        display: flex;
+    }
+    .button{
+        
+        font-family: Omnes;
+        color: white;
+        margin: 20px 30px 10px 20px;
+        width: 150px;
+        border: 3px solid white;
+        background-color: transparent;
+        &:hover {
+            background-color: rgba($color: black, $alpha: 0.2);
+        }
+    }
+    
+    .content{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .info{
+        display: flex;
+        flex-direction: row;
+        div{
+            margin: 5em;
+        }
+    }
+    h1,h2{
+        color: white;
+    }
+    input {
+        width: 400px;
+        border-radius: 0px 30px 0px 30px;
+        height: 50px;
+        outline: none;
+        border: none;
+        text-align: center;
+    }
+    .message{
+        width: 50vw;
+        height: 300px;
+    }
+ 
 }

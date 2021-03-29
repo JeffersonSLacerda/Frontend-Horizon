@@ -70,7 +70,7 @@ const SignIn: React.FC = () => {
   );
 
   return (
-    <Container>
+    <Container id='entrar' >
       <Content>
         <AnimetedContainer>
           <img src={logoImg} alt="Horizon" />

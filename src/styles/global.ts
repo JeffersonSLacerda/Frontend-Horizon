@@ -7,7 +7,10 @@ export default createGlobalStyle`
     box-sizing: border-box;
     outline: 0;
   }
+  :root{
+    --blue: #009bde;
 
+  }
   body {
     
     background: #fff;
