@@ -10,6 +10,8 @@ import {
 	StepsConfig,
 } from "./lib-ts/index";
 import Step1 from './stepComponents/Step1'
+import Step2 from './stepComponents/Step2'
+
 
 export const Navigation = (props: NavigationComponentProps) => {
 	console.log({ navProps: props });
@@ -39,7 +41,7 @@ const NovoDestino = () => {
             <Header />
             <Steps>
                 <Step component={Step1} />
-                <Step component={Step1} />
+                <Step component={Step2} />
             </Steps>
         </div>
     )

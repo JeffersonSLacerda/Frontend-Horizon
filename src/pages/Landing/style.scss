@@ -40,7 +40,7 @@ $blue: #009bde;
         flex-wrap: nowrap;
         flex-direction: row;
         background-color: #009bde;
-
+        width: 100%;
         img {
             flex-wrap: nowrap;
 
@@ -139,57 +139,4 @@ $blue: #009bde;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-}
-#contact {
-    display: flex;
-    height: 100vh;
-    align-items: center;
-    justify-content: center;
-    font-family: Milliard Book;
-    flex-direction: column;
-    .form{
-        display: flex;
-    }
-    .button{
-        
-        font-family: Omnes;
-        color: white;
-        margin: 20px 30px 10px 20px;
-        width: 150px;
-        border: 3px solid white;
-        background-color: transparent;
-        &:hover {
-            background-color: rgba($color: black, $alpha: 0.2);
-        }
-    }
-    
-    .content{
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
-    .info{
-        display: flex;
-        flex-direction: row;
-        div{
-            margin: 5em;
-        }
-    }
-    h1,h2{
-        color: white;
-    }
-    input {
-        width: 400px;
-        border-radius: 0px 30px 0px 30px;
-        height: 50px;
-        outline: none;
-        border: none;
-        text-align: center;
-    }
-    .message{
-        width: 50vw;
-        height: 300px;
-    }
- 
 }

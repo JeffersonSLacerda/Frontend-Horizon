@@ -1,6 +1,7 @@
 import React from 'react'
 import Input from '../../components/Input'
 import {AiOutlineArrowRight} from 'react-icons/ai'
+import './style.scss'
 
 const Contact: React.FC = () => {
     return (
@@ -8,18 +9,18 @@ const Contact: React.FC = () => {
             <div className='content'>
                 <div className='info'>
                     <div>
-                        <h2>Seu nome</h2>
+                        <p>Seu nome</p>
                         <input type='text' placeholder='Digite aqui...' />
                     </div>
                     <div>
-                        <h2>Email</h2>
+                        <p>Email</p>
                         <input type='text' placeholder='Digite aqui...' />
                     </div>
                 </div>
 
                 <div className='form'>
                     <div>
-                    <h2>Mensagem</h2>
+                    <p>Mensagem</p>
                     <input className='message' type='text' placeholder='Digite aqui...' />
                     
                     </div>

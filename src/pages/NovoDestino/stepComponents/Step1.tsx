@@ -83,7 +83,8 @@ const Step = () => {
                 <InputGroup>
                     <FormControl placeholder='Digite aqui...' aria-label='O hotel cadastrado' />
                     <InputGroup.Append>
-                        <a data-tip data-for='localTip' >
+                        <a
+                            data-tip data-for='localTip' >
                             <b>?</b>
                         </a>
                         <ReactTooltip id='localTip' place='right' effect='solid' >
@@ -93,7 +94,44 @@ const Step = () => {
                 </InputGroup>
                 <Form.Label className='label'
                 >Endereço do Local</Form.Label>
-                <FormControl placeholder='Digite aqui...' />
+                <InputGroup className='inputGroup'>
+                    <InputGroup.Prepend>
+                        <select className='form-control'>
+                            <option>Rua</option>
+                            <option>Avenida</option>
+                            <option>Travessa</option>
+                        </select>
+                    </InputGroup.Prepend>
+                    <FormControl
+                        placeholder="Digite aqui..."
+                        aria-label="Cidade"
+                        aria-describedby="basic-addon2"
+                    />
+                    <div className='address'>
+                        <InputGroup.Prepend>
+                            <InputGroup.Text>Nº</InputGroup.Text>
+                        </InputGroup.Prepend>
+                        <FormControl
+                            min={0}
+                            className='adressNumber'
+
+                            type='number'
+                            placeholder="Digite aqui..."
+                            aria-label="Digite aqui..."
+                            aria-describedby="basic-addon2"
+                        />
+                        <InputGroup.Prepend>
+                            <InputGroup.Text>Bairro</InputGroup.Text>
+                        </InputGroup.Prepend>
+                        <FormControl
+                            min={0}
+                            type='text'
+                            placeholder="Digite aqui..."
+                            aria-label="Digite aqui..."
+                            aria-describedby="basic-addon2"
+                        />
+                    </div>
+                </InputGroup>
             </Form>
         </StepComponent>
     )
@@ -107,13 +145,15 @@ const Step1 = (props: StepComponentProps) => {
             <div className='stepButtons'>
                 {
                     <>
-                        <button disabled={props.isFirst()} onClick={props.prev}>
+                        <button
+                            disabled={props.isFirst()} onClick={props.prev}>
                             Voltar
 					</button>
 
                     </>
                 }
-                {props.hasNext() && <button onClick={props.next}>Próximo</button>}
+                {props.hasNext() && <button
+                    onClick={props.next}>Próximo</button>}
             </div>
 
         </div>

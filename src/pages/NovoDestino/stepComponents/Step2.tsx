@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { StepComponentProps } from "../lib-ts";
 import { Form, InputGroup, FormControl, Dropdown, DropdownButton } from 'react-bootstrap'
 import ReactTooltip from 'react-tooltip'
-
+import TagsInput from 'react-tagsinput'
+import 'react-tagsinput/react-tagsinput.css'
 const StepComponent = (props: any) => {
     return (
         <div className='step'>
@@ -15,48 +16,30 @@ const StepComponent = (props: any) => {
     )
 }
 const Step = () => {
+    const [tags, setTags] = useState(['natureza', 'árvores', 'lagoa'])
+
+
     return (
         <StepComponent>
-            <Form>
-                <Form.Label>Cidade e Estado</Form.Label>
-                <InputGroup>
-                    <FormControl
-                        placeholder="Cidade"
-                        aria-label="Cidade"
-                        aria-describedby="basic-addon2"
-                    />
-
-                    <select id="address_state" className="form-control" name="address_state" >
-                        <option selected>Escolher...</option>
-                        <option value="AC">Acre</option>
-                        <option value="AL">Alagoas</option>
-                        <option value="AP">Amapá</option>
-                        <option value="AM">Amazonas</option>
-                        <option value="BA">Bahia</option>
-                        <option value="CE">Ceará</option>
-                        <option value="DF">Distrito Federal</option>
-                        <option value="ES">Espírito Santo</option>
-                        <option value="GO">Goías</option>
-                        <option value="MA">Maranhão</option>
-                        <option value="MT">Mato Grosso</option>
-                        <option value="MS">Mato Grosso do Sul</option>
-                        <option value="MG">Minas Gerais</option>
-                        <option value="PA">Pará</option>
-                        <option value="PB">Paraíba</option>
-                        <option value="PR">Paraná</option>
-                        <option value="PE">Pernambuco</option>
-                        <option value="PI">Piauí</option>
-                        <option value="RJ">Rio de Janeiro</option>
-                        <option value="RN">Rio Grande do Norte</option>
-                        <option value="RS">Rio Grande do Sul</option>
-                        <option value="RO">Rondônia</option>
-                        <option value="RR">Roraíma</option>
-                        <option value="SC">Santa Catarina</option>
-                        <option value="SP">São Paulo</option>
-                        <option value="SE">Sergipe</option>
-                        <option value="TO">Tocantins</option>
-                    </select>
-                </InputGroup>
+            <Form className='form'>
+                <div className='tags-content'>
+                    <Form.Label>Tags</Form.Label>
+                    <InputGroup>
+                        <TagsInput
+                            className='tags'
+                            value={tags}
+                            onChange={(tags) => setTags(tags)}
+                        />
+                        <InputGroup.Append>
+                            <a
+                                data-tip data-for='localTip-2' >
+                                <b>?</b>
+                            </a>
+                            <ReactTooltip id='localTip-2' place='top' effect='solid' >
+                                #natureza #praia #sol #mar
+                        </ReactTooltip></InputGroup.Append>
+                    </InputGroup>
+                </div>
 
                 <Form.Label>Nome do Local</Form.Label>
                 <InputGroup>
@@ -77,25 +60,25 @@ const Step = () => {
     )
 }
 const Step2 = (props: StepComponentProps) => {
-	console.log({ props });
-	return (
-		<div className="step">
-			<Step/>
-			
-			<div className='stepButtons'>
-            {
-				<>
-					<button disabled={props.isFirst()} onClick={props.prev}>
-						Voltar
+    console.log({ props });
+    return (
+        <div className="step">
+            <Step />
+
+            <div className='stepButtons'>
+                {
+                    <>
+                        <button disabled={props.isFirst()} onClick={props.prev}>
+                            Voltar
 					</button>
-					
-				</>
-			}
-			{props.hasNext() && <button onClick={props.next}>Próximo</button>}
+
+                    </>
+                }
+                {props.hasNext() && <button onClick={props.next}>Próximo</button>}
             </div>
-			
-		</div>
-	);
+
+        </div>
+    );
 };
 
 export default Step2;

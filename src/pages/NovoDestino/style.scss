@@ -1,49 +1,93 @@
 .step {
     width: 100vh;
-    .stepButtons{
+    .stepButtons {
         display: flex;
         flex-direction: row;
     }
-    .radiobutton{
-
+    
+    h1{
+        font-size: 2rem;
     }
-    .checks{
+    div{
+        display: flex;
+        flex-direction: row;
+    }
+    .address{
+        width: 100%;
+        margin-top: 10px;
+    }
+    .checks {
         display: flex;
         flex-direction: row;
         justify-content: space-around;
-        margin-bottom: 1em;
     }
-
+    .tags{
+        padding: 1em;
+    }
+    .tags-content{
+        height: auto;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
     button{
-        font-size: 18px;
+        font-size: 1rem;
         border: none;
-        margin: 1em auto;
+        margin:  1em auto;
         padding: 0.5em 2em;
         border-radius: 25px;
         background-color: var(--blue);
         color: white;
+        &:disabled{
+            background-color: rgba(#009bde, 0.5)
+            
+        }
     }
+    .inputGroup{
+        align-items: center;
+        
+    }
+    
+}
+.btn-grad {
+    background-image: linear-gradient(to right, var(--blue) 0%, #79cbca 51%, #77a1d3 100%);
+}
+.btn-grad {
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;
+    box-shadow: 0 0 20px #eee;
+    display: block;
 }
 
+.btn-grad:hover {
+    background-position: right center; /* change the direction of the change here */
+    color: #fff;
+    text-decoration: none;
+}
 #new {
     display: flex;
     height: 100vh;
     justify-content: center;
-    align-items: flex-end;
+    align-items: center;
     background-color: white;
     text-align: center;
-    .label{
+    padding-top: 2em;
+    .label {
         padding-top: 10px;
     }
     .step {
+        
         display: flex;
         flex-direction: column;
         margin-top: 1em;
-        padding: 1em 2em;
-        p {
-            margin: 1em 0 3em 0;
-        }
-        a{
+        a {
+            height: 40px;
             display: flex;
             justify-content: center;
             align-items: center;

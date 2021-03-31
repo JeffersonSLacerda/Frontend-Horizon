@@ -2,7 +2,6 @@ $blue: #009bde;
 #search-box{
   display: flex;
   flex-direction: row;
-  background-color: $blue;
   height: 30px;
   width: 85%;
   margin: auto;
@@ -19,4 +18,9 @@ $blue: #009bde;
     color: white;
     margin: auto;
   }
+}
+
+#search-box{
+  background-image: linear-gradient(to right, var(--blue) 0%, #79cbca 51%, #77a1d3 100%);
+
 }
