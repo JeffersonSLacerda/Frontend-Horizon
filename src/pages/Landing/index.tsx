@@ -7,8 +7,8 @@ import img5 from '../../assets/slide/img5.jpg'
 import $ from 'jquery'
 import LandingHeader from '../../components/LandingHeader'
 import Contact from '../Contact'
-import SignIn from '../SignIn';
 import {useHistory} from 'react-router-dom'
+import { number } from 'yup';
 
 const buttons2 = [{
   name: 'Viagem Aleatória',
@@ -73,7 +73,7 @@ const Buttons = () => {
 }
 
 const Content = () => {
-
+ 
   return (
     <div id='content'>
       <div className='center'>
