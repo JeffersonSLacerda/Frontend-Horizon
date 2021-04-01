@@ -39,11 +39,13 @@ $blue: #009bde;
         display: flex;
         flex-wrap: nowrap;
         flex-direction: row;
-        background-color: #009bde;
+        background-color: rgba(0,0,0,0.3);
         width: 100%;
+        padding: 0.5em;
         img {
+            margin: 0.15em;
             flex-wrap: nowrap;
-
+            border-radius: 25px 0 25px 0;
             height: 100%;
             width: 250px;
             border: 0.2em solid white;
