@@ -7,8 +7,9 @@ import img5 from '../../assets/slide/img5.jpg'
 import $ from 'jquery'
 import LandingHeader from '../../components/LandingHeader'
 import Contact from '../Contact'
-import {useHistory} from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 import { number } from 'yup';
+import { rgba } from 'polished';
 
 const buttons2 = [{
   name: 'Viagem Aleatória',
@@ -29,7 +30,7 @@ const Input = () => {
   return (
     <div id='input'>
       <h1>O que fazer em...</h1>
-      
+
       <input type='text' placeholder='Escolha sua viagem entre "Passeio Raiz" e "Passeio Nutella" ' />
     </div>
   )
@@ -64,7 +65,7 @@ const Buttons = () => {
     <div className='buttons'>
       {
         buttons2.map(button => <button
-          onClick={(event)=>{event.preventDefault(); history.push(`/${button.link}`)}}
+          onClick={(event) => { event.preventDefault(); history.push(`/${button.link}`) }}
           onMouseOver={() => showDescription(button.title, button.message)}
           className={button.class}>{button.name} </button>)
       }
@@ -73,7 +74,18 @@ const Buttons = () => {
 }
 
 const Content = () => {
- 
+  $(window).scroll(function () {
+    var scrollTop:any = $(this).scrollTop();
+    $('.header-overlay').css({
+      backgroundColor: function () {
+        var elementHeight:any = $(this).height();
+        let alpha:number = scrollTop/1000
+        console.log((scrollTop)/1000)
+
+        return rgba(0,0,0,Math.min(Math.max(alpha, 0), 0.35))
+      }
+    })
+  })
   return (
     <div id='content'>
       <div className='center'>

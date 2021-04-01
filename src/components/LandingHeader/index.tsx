@@ -37,7 +37,7 @@ function showView(view: any, newPage: boolean, history: any): any {
 const LandingHeader = () => {
     const history = useHistory()
     return (
-        <nav id="landing-header">
+        <nav id="landing-header" className='header-overlay'>
             <img width={260} height={90} src={logo} />
             <div className='buttons'>
                 {
