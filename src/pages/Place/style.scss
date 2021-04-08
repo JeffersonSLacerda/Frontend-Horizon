@@ -2,7 +2,6 @@
     display: flex;
     align-items: center;
     flex-direction: column;
-    padding-top: 4vw;
     margin: 5em 5em 0 5em;
 
     footer{
@@ -50,13 +49,20 @@
                 flex-direction: row;
                 border: 1px solid var(--blue);
                 margin: 1vw 6vw 0 6vw;
-                padding: 0.5em;
                 border-radius: 20px 0px 20px 0px;
                 width: 30vw;
-                
+                position: relative;
+                justify-content: stretch;
                 .rating{
                     margin-top: 30px;
                     margin-left: 1vw;
+                }
+                .shadow-right{
+                    padding-right: 1em;
+                    z-index: 1000;
+                    right: 30px;
+                    position: absolute;
+                    box-shadow: 5px 0 5px -2px #888;
                 }
                 p{
                     margin: auto;
@@ -65,16 +71,19 @@
                 img{
                     width: 40%;
                     height: 100%;
+                    padding: 0.3em;
                     border-radius: 20px 0px 20px 0px;
                 }
                 button{
+                    border-bottom-right-radius: 19px;
+                    position: absolute;
+                    right: 0;
                     margin: auto;
-                    width: 50px;
-                    height: 50px;
+                    width: 30px;
+                    height: 100%;
                     border: none;
                     background-color: var(--blue);
                     color: white;
-                    border-radius: 50%;
                 }
             }
         }

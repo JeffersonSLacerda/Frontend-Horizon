@@ -20,7 +20,7 @@ const Divider = () => (
 const Item = (props) => (
     <div className='item' id={`item-${props.id}`}>
         <img src={img2} />
-        <div>
+        <div className='shadow-right'>
             <p><b>{props.title}</b></p>
             <div
                 style={{ display: 'flex', flexDirection: 'row' }}>
@@ -40,7 +40,7 @@ const Item = (props) => (
         </div>
 
         <button>
-            +
+            <b>></b>
         </button>
     </div>
 
