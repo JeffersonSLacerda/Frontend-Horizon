@@ -1,0 +1,106 @@
+#place {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 4vw;
+    margin: 5em 5em 0 5em;
+
+    footer{
+        position: fixed;
+        lefT: 0;
+        bottom: 0;
+        width: 100%;
+        
+        button{
+            width: 100%;
+            height: 60px;
+            color: var(--blue);
+            background-color: transparent;
+            border: none;
+            transition: color .3s;
+            .icon{
+                font-size: 4rem;
+            }
+            &:hover{
+                color: var(--blue85);
+            }
+        }
+    }
+    h2{
+        font-size: 2rem;
+    }
+   
+    .row {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        
+        .column {
+            display: flex;
+            float: left;
+            width: 50%;
+            flex-wrap: wrap;
+            flex-direction: column;
+            align-items: center;
+            h3{
+                font-size: 1.5rem;
+            }
+            .item{
+                display: flex;
+                flex-direction: row;
+                border: 1px solid var(--blue);
+                margin: 1vw 6vw 0 6vw;
+                padding: 0.5em;
+                border-radius: 20px 0px 20px 0px;
+                width: 30vw;
+                
+                .rating{
+                    margin-top: 30px;
+                    margin-left: 1vw;
+                }
+                p{
+                    margin: auto;
+                    margin-left: 1vw;
+                }
+                img{
+                    width: 40%;
+                    height: 100%;
+                    border-radius: 20px 0px 20px 0px;
+                }
+                button{
+                    margin: auto;
+                    width: 50px;
+                    height: 50px;
+                    border: none;
+                    background-color: var(--blue);
+                    color: white;
+                    border-radius: 50%;
+                }
+            }
+        }
+        /* Clear floats after the columns */
+        &row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+    }
+}
+#divider {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    height: 3vw;
+    padding: 0 10vw 0 10vw;
+    div {
+        width: 100%;
+        border-bottom: 8px solid var(--blue);
+        border-radius: 20px;
+    }
+    img {
+        margin: 4em;
+        height: 100%;
+    }
+}

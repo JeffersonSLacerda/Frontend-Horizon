@@ -14,24 +14,28 @@ import { rgba } from 'polished';
 const buttons2 = [{
   name: 'Viagem Aleatória',
   class: 'viagemAleatoria',
-  title: 'Surpreenda-se com seu destino.',
-  message: 'A viagem aleatória significa que você fará uma viagem aleatória de acordo com o que é aleatório.',
+  title: 'Quais locais no RJ só os moradores sabem?',
+  message: 'Surpreenda-se com seu destino. A viagem aleatória significa que você fará uma viagem aleatória de acordo com o que é aleatório.',
   link: 'viagem_aleatoria'
 
 }, {
   name: 'Novo Destino',
   class: 'novoDestino',
-  title: 'Escolha você mesmo seu lugar.',
-  message: 'O destino é você quem escolhe, logo ele não será aleatório ava',
+  title: 'Escolha sua viagem entre "Passeio Raiz" e "Passeio Nutela".',
+  message: 'Aqui a gente separa os lugares mais visitados pelos turistas e os mais visitados pelos moradores.',
   link: 'novo_destino'
 
 }]
+let globalPlace: string = ''
 const Input = () => {
   return (
     <div id='input'>
       <h1>O que fazer em...</h1>
-
-      <input type='text' placeholder='Escolha sua viagem entre "Passeio Raiz" e "Passeio Nutella" ' />
+      <input
+        onChange={(event) => {
+          globalPlace = event.target.value
+        }}
+        type='text' placeholder='Qualquer lugar do Brasil' />
     </div>
   )
 }
@@ -65,7 +69,12 @@ const Buttons = () => {
     <div className='buttons'>
       {
         buttons2.map(button => <button
-          onClick={(event) => { event.preventDefault(); history.push(`/${button.link}`) }}
+          onClick={(event) => {
+            event.preventDefault();
+
+            history.push(`/${button.link}`, { place: globalPlace })
+
+          }}
           onMouseOver={() => showDescription(button.title, button.message)}
           className={button.class}>{button.name} </button>)
       }
@@ -75,14 +84,14 @@ const Buttons = () => {
 
 const Content = () => {
   $(window).scroll(function () {
-    var scrollTop:any = $(this).scrollTop();
+    var scrollTop: any = $(this).scrollTop();
     $('.header-overlay').css({
       backgroundColor: function () {
-        var elementHeight:any = $(this).height();
-        let alpha:number = scrollTop/1000
-        console.log((scrollTop)/1000)
+        var elementHeight: any = $(this).height();
+        let alpha: number = scrollTop / 1000
+        console.log((scrollTop) / 1000)
 
-        return rgba(0,0,0,Math.min(Math.max(alpha, 0), 0.35))
+        return rgba(0, 0, 0, Math.min(Math.max(alpha, 0), 0.35))
       }
     })
   })

@@ -37,7 +37,7 @@ const Step = () => {
                 </div>
                 <Form.Label
                     className='label'
-                >Cidade e Estado</Form.Label>
+                ><b>Cidade e Estado</b></Form.Label>
                 <InputGroup>
                     <FormControl
                         placeholder="Cidade"
@@ -79,7 +79,7 @@ const Step = () => {
 
                 <Form.Label
                     className='label'
-                >Nome do Local</Form.Label>
+                ><b>Nome do Local</b></Form.Label>
                 <InputGroup>
                     <FormControl placeholder='Digite aqui...' aria-label='O hotel cadastrado' />
                     <InputGroup.Append>
@@ -93,7 +93,7 @@ const Step = () => {
                     </InputGroup.Append>
                 </InputGroup>
                 <Form.Label className='label'
-                >Endereço do Local</Form.Label>
+                ><b>Endereço do Local</b></Form.Label>
                 <InputGroup className='inputGroup'>
                     <InputGroup.Prepend>
                         <select className='form-control'>

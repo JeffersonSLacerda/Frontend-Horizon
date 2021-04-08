@@ -4,6 +4,8 @@ import { Form, InputGroup, FormControl, Dropdown, DropdownButton } from 'react-b
 import ReactTooltip from 'react-tooltip'
 import TagsInput from 'react-tagsinput'
 import 'react-tagsinput/react-tagsinput.css'
+import StarRatings from 'react-star-ratings'
+
 const StepComponent = (props: any) => {
     return (
         <div className='step'>
@@ -17,14 +19,19 @@ const StepComponent = (props: any) => {
 }
 const Step = () => {
     const [tags, setTags] = useState(['natureza', 'árvores', 'lagoa'])
-
+    const [rating, setRating] = useState(0)
+    function changeRating(newRating: any) {
+        setRating(newRating)
+    }
 
     return (
         <StepComponent>
             <Form className='form'>
                 <div className='tags-content'>
-                    <Form.Label>Tags</Form.Label>
-                    <InputGroup>
+                    <Form.Label>                        
+                        <b>Tags</b>
+                    </Form.Label>
+                    <InputGroup className='tagGroup'>
                         <TagsInput
                             className='tags'
                             value={tags}
@@ -37,24 +44,56 @@ const Step = () => {
                             </a>
                             <ReactTooltip id='localTip-2' place='top' effect='solid' >
                                 #natureza #praia #sol #mar
-                        </ReactTooltip></InputGroup.Append>
+                            </ReactTooltip>
+                        </InputGroup.Append>
                     </InputGroup>
                 </div>
 
-                <Form.Label>Nome do Local</Form.Label>
-                <InputGroup>
-                    <FormControl placeholder='Digite aqui...' aria-label='O hotel cadastrado' />
-                    <InputGroup.Append>
-                        <a data-tip data-for='localTip' >
-                            <b>?</b>
-                        </a>
-                        <ReactTooltip id='localTip' place='right' effect='solid' >
-                            Você deve digitar o nome do hotel ou pousada credenciada.
-                            </ReactTooltip>
-                    </InputGroup.Append>
-                </InputGroup>
-                <Form.Label>Endereço do Local</Form.Label>
-                <FormControl placeholder='Digite aqui...' />
+                <div className='avaliacao margin'>
+                    <Form.Label>
+                        <b>Sua avaliação</b>
+                    </Form.Label>
+                    <StarRatings
+                        style={{
+                            alignSelf: 'center',
+                        }}
+                        starRatedColor='blue'
+                        numberOfStars={5}
+                        name='Avaliação'
+                        starDimension='30px'
+                        starSpacing='5px'
+                        rating={rating}
+                        changeRating={changeRating}
+                    />
+                </div>
+                <div className='check-content'>
+                    <Form.Label><b>Deseja que apareça seu nome como divulgador do local?</b></Form.Label>
+                    <div className='checks'>
+                        <Form.Check
+                            className='radiobutton'
+                            type='radio'
+                            id='sim'
+                            label='Sim'
+                            name='nome'
+                        />
+                        <Form.Check
+                            className='radiobutton'
+
+                            name='nome'
+                            type='radio'
+                            id='nao'
+                            label='Não'
+                        />
+                        
+                    </div>
+                    <a
+                                data-tip data-for='localTip-3' >
+                                <b>?</b>
+                            </a>
+                        <ReactTooltip id='localTip-3' place='top' effect='solid' >
+                                Seu nome aparecerá para os outros.
+                        </ReactTooltip>
+                </div>
             </Form>
         </StepComponent>
     )

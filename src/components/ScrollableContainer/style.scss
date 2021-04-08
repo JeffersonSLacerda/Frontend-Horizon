@@ -1,0 +1,45 @@
+:root {
+    --blue50: #00b3ff;
+    --blue85: #b3e8ff;
+
+}
+body{
+    overflow: hidden !important;
+}
+#scrollable {
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    ::-webkit-scrollbar {
+        display: none;
+    }
+    ::-webkit-scrollbar-track {
+        background-color: var(--blue);
+    }
+    
+    .scroll {
+        overflow-y: scroll !important;
+        -webkit-mask-image: linear-gradient(
+            to top, transparent 15%, black 25%,
+        );
+    }
+    .whitebg {
+        background-color: rgba(0,0,0,0);
+        align-self: center;
+    }
+    footer{
+        background-color: transparent;
+    }
+    .down-button {
+        background-color: transparent  !important;
+        color: var(--blue);
+        position: absolute;
+        bottom: 0;
+        border: none;
+        height: 50px;
+        transition: color 0.3s;
+        &:hover {
+            color: var(--blue85);
+        }
+    }
+}
