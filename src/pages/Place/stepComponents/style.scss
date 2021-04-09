@@ -2,8 +2,7 @@
     display: flex;
     align-items: center;
     flex-direction: column;
-    margin: 5em 5em 0 5em;
-
+    margin: 3em 5em 0 5em;
     footer{
         position: fixed;
         lefT: 0;
@@ -48,17 +47,19 @@
                 display: flex;
                 flex-direction: row;
                 border: 1px solid var(--blue);
-                margin: 1vw 6vw 0 6vw;
+                margin: 18px 60px 0 60px;
                 border-radius: 20px 0px 20px 0px;
-                width: 30vw;
+                width: 425px;
+                
+                //width: 30vw;
                 position: relative;
                 justify-content: stretch;
                 .rating{
                     margin-top: 30px;
-                    margin-left: 1vw;
+                    margin-left: 0px;                    
                 }
                 .shadow-right{
-                    padding-right: 1em;
+                    padding-right: 20px;
                     z-index: 1000;
                     right: 30px;
                     position: absolute;
@@ -66,7 +67,8 @@
                 }
                 p{
                     margin: auto;
-                    margin-left: 1vw;
+                    margin-left: 0px;
+                    font-size: 18px;
                 }
                 img{
                     width: 40%;
@@ -78,7 +80,6 @@
                     border-bottom-right-radius: 19px;
                     position: absolute;
                     right: 0;
-                    margin: auto;
                     width: 30px;
                     height: 100%;
                     border: none;
