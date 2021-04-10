@@ -12,9 +12,11 @@ import {
     Step,
     NavigationComponentProps,
     StepsConfig,
-} from "../../components/lib-ts/index";
+} from "./lib-ts"
 import Step1 from './stepComponents/Step1'
-export const Navigation = (props) => {
+import Step2 from './stepComponents/Step2'
+
+export const Navigation = (props:any) => {
 	console.log({ navProps: props });
 	return (
 		<div>
@@ -30,7 +32,7 @@ export const Navigation = (props) => {
 
 const Place = () => {
     const config = {
-        before: (props) => <Navigation {...props} test="test" />,
+        before: (props:any) => <Navigation {...props} test="test" />,
         after: Navigation,
         navigation: {
             component: Navigation,
@@ -41,8 +43,9 @@ const Place = () => {
 
     return (
         <div id='place'>
-            <Steps>
+            <Steps >
                 <Step component={Step1}/>
+                <Step component={Step2}/>
             </Steps>
         </div>
     )

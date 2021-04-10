@@ -1,5 +1,5 @@
 import React from "react";
-import { StepComponentProps } from "../../../components/lib-ts";
+import { StepComponentProps } from "../lib-ts";
 import { Form, ButtonGroup, InputGroup, FormControl, Dropdown, DropdownButton } from 'react-bootstrap'
 import ReactTooltip from 'react-tooltip'
 

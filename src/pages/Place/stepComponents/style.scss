@@ -3,36 +3,49 @@
     align-items: center;
     flex-direction: column;
     margin: 3em 5em 0 5em;
-    footer{
+    position: relative;
+    .stepButtons {
+        z-index: 15000;
+
+        button {
+            z-index: 5000;
+            position: absolute;
+            left: 0;
+            top: 50%;
+            background-color: black;
+            width: 100px;
+        }
+    }
+    footer {
         position: fixed;
-        lefT: 0;
+        left: 0;
         bottom: 0;
         width: 100%;
-        
-        button{
+
+        button {
             width: 100%;
             height: 60px;
             color: var(--blue);
             background-color: transparent;
             border: none;
-            transition: color .3s;
-            .icon{
+            transition: color 0.3s;
+            .icon {
                 font-size: 4rem;
             }
-            &:hover{
+            &:hover {
                 color: var(--blue85);
             }
         }
     }
-    h2{
+    h2 {
         font-size: 2rem;
     }
-   
+
     .row {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
-        
+
         .column {
             display: flex;
             float: left;
@@ -40,43 +53,43 @@
             flex-wrap: wrap;
             flex-direction: column;
             align-items: center;
-            h3{
+            h3 {
                 font-size: 1.5rem;
             }
-            .item{
+            .item {
                 display: flex;
                 flex-direction: row;
                 border: 1px solid var(--blue);
                 margin: 18px 60px 0 60px;
                 border-radius: 20px 0px 20px 0px;
                 width: 425px;
-                
+
                 //width: 30vw;
                 position: relative;
                 justify-content: stretch;
-                .rating{
+                .rating {
                     margin-top: 30px;
-                    margin-left: 0px;                    
+                    margin-left: 0px;
                 }
-                .shadow-right{
+                .shadow-right {
                     padding-right: 20px;
                     z-index: 1000;
                     right: 30px;
                     position: absolute;
                     box-shadow: 5px 0 5px -2px #888;
                 }
-                p{
+                p {
                     margin: auto;
                     margin-left: 0px;
                     font-size: 18px;
                 }
-                img{
+                img {
                     width: 40%;
                     height: 100%;
                     padding: 0.3em;
                     border-radius: 20px 0px 20px 0px;
                 }
-                button{
+                button {
                     border-bottom-right-radius: 19px;
                     position: absolute;
                     right: 0;
@@ -93,6 +106,59 @@
             content: "";
             display: table;
             clear: both;
+        }
+    }
+}
+.step2 {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10vh;
+    h1 {
+        font-size: 2em;
+        align-self: center;
+    }
+    .row {
+        display: flex;
+        height: 100%;
+        margin-left: 10vw;
+        margin-right: 10vw;
+        p {
+            color: var(--blue);
+        }
+        .cover {
+            height: 300px;
+            margin-bottom: 25px;
+            border-top-left-radius: 20px;
+            margin-right: 1vw;
+            width: 50;
+            background-image: url("../../../assets/fortaleza.jpg");
+            background-position: fixed;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        .imgs {
+            margin-right: 1vw;
+            align-content: center;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            width: 50;
+            
+            img {
+                align-self: center;
+                margin-bottom: 20px;
+                width: 30%;
+            }
+        }
+        .column {
+            height: 100vw;
+            width: 50%;
+        }
+        .column2 {
+            background-color: rgba(200, 200, 200, 0.1);
+            padding: 2em;
+            height: 100vh;
+            border-top-left-radius: 20px;
         }
     }
 }

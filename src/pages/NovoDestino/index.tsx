@@ -8,7 +8,7 @@ import {
 	Step,
 	NavigationComponentProps,
 	StepsConfig,
-} from "../../components/lib-ts/index";
+} from "./lib-ts/index";
 import Step1 from './stepComponents/Step1'
 import Step2 from './stepComponents/Step2'
 
