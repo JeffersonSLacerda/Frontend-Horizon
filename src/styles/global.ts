@@ -12,14 +12,14 @@ export default createGlobalStyle`
 
   }
   body {
-    
     background: #fff;
     color: #000;
     -webkit-font-smoothing: antialiased;
   }
 
   border-style, input, button {
-    font-family: 'Roboto Slab', serif;
+    /* font-family: 'Roboto Slab', sans-serif; */
+    font-family: 'Poppins', sans-serif;
     font-size: 16px;
   }
 

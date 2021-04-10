@@ -7,8 +7,19 @@ export const Top = styled.div`
 `;
 
 export const Header = styled.div`
+  padding-top: 1.5rem;
   display: flex;
   flex-direction: column;
+
+  .logout {
+    margin-top: 2rem !important;
+    margin-left: -4rem !important;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
   .content {
     margin: 5px 20px;
     height: 13opx;
@@ -48,21 +59,44 @@ export const Header = styled.div`
       }
     }
 
-    .cadastro {
+    .cadastros {
       display: flex;
       margin-left: 30px;
       align-content: center;
+      border-left: 2px solid var(--blue);
+      border-top: 2px solid var(--blue);
+      padding: 0.25rem 1rem 1rem 0.25rem;
+      max-height: 4rem;
 
       .cadastro-results {
         margin-left: 13px;
       }
     }
+
     .destinos {
       display: flex;
       margin-left: 30px;
       align-content: center;
+      border-left: 2px solid var(--blue);
+      border-top: 2px solid var(--blue);
+      padding: 0.25rem 1rem 1rem 0.25rem;
+      max-height: 4rem;
 
       .destinos-results {
+        margin-left: 13px;
+      }
+    }
+
+    .cidades {
+      display: flex;
+      margin-left: 30px;
+      align-content: center;
+      border-left: 2px solid var(--blue);
+      border-top: 2px solid var(--blue);
+      padding: 0.25rem 1rem 1rem 0.25rem;
+      /* max-height: 5rem; */
+
+      .cidades-results {
         margin-left: 13px;
       }
     }
@@ -83,7 +117,7 @@ export const Header = styled.div`
   .bottom-header {
     align-content: center;
     position: relative;
-    margin-top: -50px;
+    /* margin-top: -50px; */
 
     .blue-line {
       margin: 20px 20px -15px;
@@ -99,30 +133,85 @@ export const Header = styled.div`
 `;
 
 export const Content = styled.div`
-  margin: 10px 20px 10px;
-  display: flex;
-  flex-direction: row;
+  width: 90%;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
 
   .left-side {
     margin-left: 5%;
-    width: 50%;
+    width: 100%;
     align-content: center;
   }
 
   .right-side {
     margin-right: 3%;
     margin-left: 5%;
-    width: 50%;
+    width: 100%;
     align-content: center;
   }
 `;
 
 export const Citys = styled.div`
-  border: solid 2px;
+  border-right: solid 2px var(--blue);
+  padding-right: 1rem;
+
   text-align: center;
   width: 90%;
   /* max-width: 440px; */
   height: 250px;
+
+  button {
+    margin-left: 5px;
+    background: transparent;
+    border: none;
+  }
+
+  .content-message {
+    justify-content: space-between;
+    height: 60px;
+
+    .data-message {
+      &:hover {
+        cursor: pointer;
+      }
+
+      border: solid 1px var(--blue);
+      border-right: solid 1.1rem var(--blue);
+      border-radius: 0.5rem;
+      margin: 2px;
+      width: 100%;
+      text-align: left;
+      padding: 1rem;
+      display: flex;
+      justify-content: space-between;
+
+      .data {
+        padding: 0.5rem;
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+
+        .name {
+          color: #009bde;
+        }
+
+        .time {
+          color: #b7c2c2;
+          margin: 0 10px;
+        }
+
+        .date {
+          color: #b7c2c2;
+        }
+      }
+      .message-icon {
+        padding: 0.5rem;
+        font-size: 5px;
+      }
+    }
+  }
 
   .title {
     font-weight: bold;
@@ -147,115 +236,168 @@ export const Citys = styled.div`
 `;
 
 export const Messages = styled.div`
-  border: solid 2px;
+  /* border-right: solid 2px var(--blue); */
+  padding-right: 1rem;
   text-align: center;
-  width: 90%;
-  /* max-width: 440px; */
-  height: 250px;
-  margin-top: 5px;
+  height: 600px;
+  margin-bottom: 3rem;
+
+  overflow-y: scroll;
+  overflow-x: hidden;
+
+  svg {
+    margin: 0 5px;
+  }
+
+  button {
+    margin-left: 5px;
+    background: transparent;
+    border: none;
+  }
+
+  form {
+    margin-bottom: 1rem;
+  }
+
+  #searchUser {
+    border-radius: 10px 0 10px 0;
+    padding: 3px;
+  }
 
   .title-message {
     font-weight: bold;
     margin: 5px;
   }
   .content-message {
-    flex-direction: row;
-    display: flex;
     justify-content: space-between;
     height: 60px;
+
     .data-message {
-      border: solid 1px;
-      border-radius: 5px;
+      &:hover {
+        cursor: pointer;
+      }
+
+      border: solid 1px var(--blue);
+      border-right: solid 1.1rem var(--blue);
+      border-radius: 0.5rem;
       margin: 2px;
       width: 100%;
       text-align: left;
-      padding: 5px;
+      padding: 1rem;
       display: flex;
       justify-content: space-between;
 
       .data {
+        padding: 0.5rem;
         display: flex;
         justify-content: space-between;
-        padding: 2px;
         width: 100%;
-        margin-top: 5px;
 
         .name {
           color: #009bde;
         }
+
         .time {
           color: #b7c2c2;
-          margin: 2px 10px 2px;
+          margin: 0 10px;
         }
+
         .date {
           color: #b7c2c2;
         }
       }
       .message-icon {
-        margin-top: -5px;
+        padding: 0.5rem;
+        font-size: 5px;
       }
     }
   }
 `;
 
 export const DashboardSettings = styled.div`
-  border: solid 2px;
+  display: flex;
+  margin: 1rem auto;
+  padding: 2rem;
+  border: solid 2px var(--blue);
   width: 90%;
   text-align: center;
   /* max-width: 440px; */
-  height: 250px;
 
-  .title {
-    font-weight: bold;
+  .button {
+    padding: 0.5rem 5rem;
+    margin: 0.5rem auto;
+    border: 0;
+    border-radius: 15px;
+    background: var(--blue);
+    color: #fff;
   }
 
-  input {
-    width: 80%;
-    margin-top: 5px;
-    border-radius: 10px 0 10px 0;
-    padding: 3px;
-  }
+  .texto-home {
+    width: 65%;
+    margin: auto;
 
-  svg {
-    margin-left: 15px;
-  }
-
-  #bannerPrincipal {
-    display: none;
-  }
-
-  .banner {
-    display: flex;
-    cursor: pointer;
-    justify-content: space-around;
-    margin-top: 5px;
-    /* margin-left: 8%; */
-
-    .uploadIcon {
-      margin: 15% 17px 0 0;
+    .title {
+      font-weight: bold;
     }
 
-    img {
+    input {
       width: 80%;
-      height: 180px;
-      margin-left: 20px;
-      padding-right: -20px;
+      margin-top: 5px;
+      border-radius: 15px;
+      padding: 3px;
+    }
+
+    svg {
+      margin-left: 15px;
+    }
+  }
+
+  .container {
+    width: 35%;
+    margin: auto;
+    padding-left: 2rem;
+    border-left: 2px solid var(--blue);
+
+    .title {
+      font-weight: bold;
+    }
+
+    #bannerPrincipal {
+      display: none;
+    }
+
+    .banner {
+      display: flex;
+      cursor: pointer;
+      justify-content: space-around;
+      margin-top: 1rem;
+      /* margin-left: 8%; */
+
+      .uploadIcon {
+        margin: auto;
+      }
+
+      img {
+        width: 80%;
+        height: 180px;
+        margin: 0 auto;
+      }
     }
   }
 `;
 
 export const Users = styled.div`
-  border: solid 2px;
-  width: 90%;
   text-align: center;
-  /* max-width: 440px; */
   height: 250px;
-  margin-top: 5px;
 
   .content {
     #searchUser {
       border-radius: 10px 0 10px 0;
       padding: 3px;
+    }
+
+    input {
+      width: 80%;
     }
 
     button {

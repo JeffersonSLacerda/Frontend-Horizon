@@ -9,13 +9,15 @@ import './assets/fonts/Milliard/font-face.css'
 import Routes from './routes';
 
 import AppProvider from './hooks';
+import Admin from './pages/Admin';
 
 const App: React.FC = () => (
   <Router>
     
     <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places"></script>
     <AppProvider>
-      <Routes />
+      {/* <Routes /> */}
+      <Admin />
     </AppProvider>
 
     <GlobalStyle />
