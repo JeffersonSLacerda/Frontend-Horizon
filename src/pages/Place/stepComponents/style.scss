@@ -72,9 +72,10 @@
                     margin-left: 0px;
                 }
                 .shadow-right {
-                    padding-right: 20px;
                     z-index: 1000;
                     right: 30px;
+                    padding-right: 3em;
+                    height: 100%;
                     position: absolute;
                     box-shadow: 5px 0 5px -2px #888;
                 }

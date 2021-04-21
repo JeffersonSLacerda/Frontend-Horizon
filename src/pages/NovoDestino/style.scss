@@ -1,57 +1,91 @@
+
+.step > div{
+    margin: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .time-div{
+        width: 60%;
+        display: flex;
+        justify-content: space-between;
+    }
+    .price-input-group{
+        width: 50%;
+    }
+    .time-picker{
+        width: 120px;
+        margin: auto;
+
+    }
+    label{
+        padding-right: 1em;
+        width: 150px;
+    }
+    
+}
+
 .step {
-    width: 100vh;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 50vw;
+    height: 65%;
+    .star-rating-div{
+        padding-right: 3em;
+    }
     .stepButtons {
         display: flex;
         flex-direction: row;
+        justify-content: center !important;
+        margin-top: 2em;
+        button{
+            margin: 1em 20px;
+        }
     }
-    
     h1{
         font-size: 2rem;
     }
     div{
         display: flex;
         flex-direction: row;
+        input{
+            width: 50%;
+        }
+        justify-content: space-between !important;
     }
     .address{
         width: 100%;
-        margin-top: 10px;
     }
     .checks {
         display: flex;
         flex-direction: row;
         justify-content: space-around;
-    }
-    .tags{
-        padding: 1em;
-    }
-    .margin{
-        margin: 1em;
+        
         label{
-            margin: 0.5em;
+            text-align: left;
+            padding-left: 3em;
         }
+        
     }
-    .tagGroup{
-        justify-content: space-around;
+    .radiobutton{
+        margin-bottom: 5px;
     }
-    .tags-content{
-        display: flex;
-    }
+    
     a{
         align-self: center;
     }
-    .avaliacao{
-        display: flex;
+   
+    label{   
+        text-align: right;
+        align-self: center;
+
+    }
+    .label{
+        padding: 0 1em;
+        align-self: center !important;
+        width: 150px !important;
         justify-content: center;
         align-items: center;
-    
-    }
-    .check-content{
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-    }
-    label{   
-        align-self: center;
     }
     button{
         font-size: 1rem;
@@ -66,10 +100,14 @@
             
         }
     }
-    .inputGroup{
-        align-items: center;
-        
+    
+    select{
+        align-self: center;
     }
+    input{
+        align-self: center;
+    }
+   
     
 }
 .btn-grad {
@@ -92,6 +130,7 @@
 }
 #new {
     display: flex;
+    flex-direction: column;
     height: 100vh;
     justify-content: center;
     align-items: center;

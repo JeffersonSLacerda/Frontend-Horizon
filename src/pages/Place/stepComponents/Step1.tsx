@@ -34,6 +34,7 @@ const Item = (props: any, stepedProps: StepComponentProps) => {
                 <div className='rating'
                 >
                     <StarRatings
+                        className='star-ratings'
                         starRatedColor='orange'
                         numberOfStars={5}
                         name='Avaliação'

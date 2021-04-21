@@ -6,17 +6,7 @@ import TagsInput from 'react-tagsinput'
 import 'react-tagsinput/react-tagsinput.css'
 import StarRatings from 'react-star-ratings'
 
-const StepComponent = (props: any) => {
-    return (
-        <div className='step'>
-            <h1>Novo Destino</h1>
-            <p>Aqui você escolhe seu passeio de ponta a ponta.</p>
-            {
-                props.children
-            }
-        </div>
-    )
-}
+
 const Step = () => {
     const [tags, setTags] = useState(['natureza', 'árvores', 'lagoa'])
     const [rating, setRating] = useState(0)
@@ -25,77 +15,72 @@ const Step = () => {
     }
 
     return (
-        <StepComponent>
-            <Form className='form'>
-                <div className='tags-content'>
-                    <Form.Label>                        
-                        <b>Tags</b>
-                    </Form.Label>
-                    <InputGroup className='tagGroup'>
-                        <TagsInput
-                            className='tags'
-                            value={tags}
-                            onChange={(tags) => setTags(tags)}
-                        />
-                        <InputGroup.Append>
-                            <a
-                                data-tip data-for='localTip-2' >
-                                <b>?</b>
-                            </a>
-                            <ReactTooltip id='localTip-2' place='top' effect='solid' >
-                                #natureza #praia #sol #mar
-                            </ReactTooltip>
-                        </InputGroup.Append>
-                    </InputGroup>
-                </div>
+        <Form className='step'>
+            <div className='step2component'>
+                <Form.Label>
+                    <b>Tags</b>
+                </Form.Label>
 
-                <div className='avaliacao margin'>
-                    <Form.Label>
-                        <b>Sua avaliação</b>
-                    </Form.Label>
-                    <StarRatings
-                        style={{
-                            alignSelf: 'center',
-                        }}
-                        starRatedColor='blue'
-                        numberOfStars={5}
-                        name='Avaliação'
-                        starDimension='30px'
-                        starSpacing='5px'
-                        rating={rating}
-                        changeRating={changeRating}
+                <TagsInput
+                    className='tags'
+                    value={tags}
+                    onChange={(tags) => setTags(tags)}
+                />
+                <a
+                    data-tip data-for='localTip-2' >
+                    <b>?</b>
+                </a>
+                <ReactTooltip id='localTip-2' place='top' effect='solid' >
+                    #natureza #praia #sol #mar
+                </ReactTooltip>
+            </div>
+
+            <div className='step2component'>
+                <Form.Label>
+                    <b>Sua avaliação</b>
+                </Form.Label>
+                <StarRatings
+                    style={{
+                        marginRight: '20px'
+                    }}
+                    starRatedColor='blue'
+                    numberOfStars={5}
+                    name='Avaliação'
+                    starDimension='30px'
+                    starSpacing='5px'
+                    rating={rating}
+                    changeRating={changeRating}
+                />
+            </div>
+            <div className='step2component'>
+                <Form.Label><b>Deseja que apareça seu nome como divulgador do local?</b></Form.Label>
+                <div className='checks'>
+                    <Form.Check
+                        className='radiobutton'
+                        type='radio'
+                        id='sim'
+                        label='Sim'
+                        name='nome'
                     />
-                </div>
-                <div className='check-content'>
-                    <Form.Label><b>Deseja que apareça seu nome como divulgador do local?</b></Form.Label>
-                    <div className='checks'>
-                        <Form.Check
-                            className='radiobutton'
-                            type='radio'
-                            id='sim'
-                            label='Sim'
-                            name='nome'
-                        />
-                        <Form.Check
-                            className='radiobutton'
+                    <Form.Check
+                        className='radiobutton'
 
-                            name='nome'
-                            type='radio'
-                            id='nao'
-                            label='Não'
-                        />
-                        
-                    </div>
-                    <a
-                                data-tip data-for='localTip-3' >
-                                <b>?</b>
-                            </a>
-                        <ReactTooltip id='localTip-3' place='top' effect='solid' >
-                                Seu nome aparecerá para os outros.
-                        </ReactTooltip>
+                        name='nome'
+                        type='radio'
+                        id='nao'
+                        label='Não'
+                    />
+
                 </div>
-            </Form>
-        </StepComponent>
+                <a
+                    data-tip data-for='localTip-3' >
+                    <b>?</b>
+                </a>
+                <ReactTooltip id='localTip-3' place='top' effect='solid' >
+                    Seu nome aparecerá para os outros.
+                        </ReactTooltip>
+            </div>
+        </Form>
     )
 }
 const Step2 = (props: StepComponentProps) => {

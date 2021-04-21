@@ -24,7 +24,7 @@ const Content = () => {
         </div>
     )
 }
-const Step2 = (props) => {
+const Step2 = (props:any) => {
     return (
         <div className='step2'>
             <h1>O que fazer em Fortaleza - CE?</h1>

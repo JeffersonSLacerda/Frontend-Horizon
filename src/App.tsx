@@ -16,7 +16,7 @@ const App: React.FC = () => (
     
     <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places"></script>
     <AppProvider>
-      {/* <Routes /> */}
+      <Routes /> 
       <Admin />
     </AppProvider>
 

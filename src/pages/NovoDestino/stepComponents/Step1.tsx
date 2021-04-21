@@ -2,50 +2,68 @@ import React from "react";
 import { StepComponentProps } from "../lib-ts";
 import { Form, ButtonGroup, InputGroup, FormControl, Dropdown, DropdownButton } from 'react-bootstrap'
 import ReactTooltip from 'react-tooltip'
-
-const StepComponent = (props: any) => {
-    return (
-        <div className='step'>
-            <h1>Novo Destino</h1>
-            <p>Destinos são pontos turisticos, em cidades, que as pessoas podem conhecer. Esses destinos podem ser Raiz (locais que são geralmente mais visitados por moradores da própria cidade) e Nutella (locais que são mais visitados por turistas).</p>
-            {
-                props.children
-            }
-        </div>
-    )
+import { useState } from 'react'
+interface UfData {
+    id: number;
+    sigla: string;
 }
-const Step = () => {
-    return (
-        <StepComponent>
-            <Form>
-                <div className='checks'>
-                    <Form.Check
-                        className='radiobutton'
-                        type='radio'
-                        id='raiz'
-                        label='Turismo Raiz'
-                        name='turismoTipo'
-                    />
-                    <Form.Check
-                        className='radiobutton'
 
-                        name='turismoTipo'
-                        type='radio'
-                        id='nutella'
-                        label='Turismo Nutella'
-                    />
-                </div>
+interface CityData {
+    id: number;
+    nome: string;
+}
+interface Step1Data {
+    nome: string;
+    rua: string;
+    numero: number;
+    bairro: string;
+    city: string;
+    uf: string;
+}
+const Step = (props: StepComponentProps) => {
+    const [city, setCity] = useState('')
+    const [bairro, setBairro] = useState('')
+    const [numero, setNumero] = useState('')
+    const [local, setLocal] = useState('')
+    const [uf, setUf] = useState('')
+    const [rua, setRua] = useState('')
+    console.log(city)
+    return (
+        <Form className='step'>
+            <div className='checks'>
+                <Form.Check
+                    className='radiobutton'
+                    type='radio'
+                    id='raiz'
+                    label='Turismo Raiz'
+                    name='turismoTipo'
+                />
+                <Form.Check
+                    className='radiobutton'
+                    name='turismoTipo'
+                    type='radio'
+                    id='nutella'
+                    label='Turismo Nutella'
+                />
+            </div>
+            <div>
                 <Form.Label
                     className='label'
                 ><b>Cidade e Estado</b></Form.Label>
+
                 <InputGroup>
                     <FormControl
+                        onChange={props.handleChange}
+                        value={props.getState("city", "")}
+                        name='city'
                         placeholder="Cidade"
                         aria-label="Cidade"
                         aria-describedby="basic-addon2"
                     />
 
-                    <select id="address_state" className="form-control" name="address_state" >
+                    <select
+
+                        id="address_state" className="form-control" name="address_state" >
                         <option selected>Escolher...</option>
                         <option value="AC">Acre</option>
                         <option value="AL">Alagoas</option>
@@ -76,12 +94,17 @@ const Step = () => {
                         <option value="TO">Tocantins</option>
                     </select>
                 </InputGroup>
-
+            </div>
+            <div>
                 <Form.Label
                     className='label'
                 ><b>Nome do Local</b></Form.Label>
                 <InputGroup>
-                    <FormControl placeholder='Digite aqui...' aria-label='O hotel cadastrado' />
+                    <FormControl
+                        onChange={props.handleChange}
+                        value={props.getState("name", "")}
+                        name='name'
+                        placeholder='Digite aqui...' aria-label='O hotel cadastrado' />
                     <InputGroup.Append>
                         <a
                             data-tip data-for='localTip' >
@@ -92,6 +115,8 @@ const Step = () => {
                             </ReactTooltip>
                     </InputGroup.Append>
                 </InputGroup>
+            </div>
+            <div>
                 <Form.Label className='label'
                 ><b>Endereço do Local</b></Form.Label>
                 <InputGroup className='inputGroup'>
@@ -103,8 +128,11 @@ const Step = () => {
                         </select>
                     </InputGroup.Prepend>
                     <FormControl
+                        onChange={props.handleChange}
+                        value={props.getState("endereco", "")}
+                        name='endereco'
                         placeholder="Digite aqui..."
-                        aria-label="Cidade"
+                        aria-label="Nome"
                         aria-describedby="basic-addon2"
                     />
                     <div className='address'>
@@ -132,15 +160,15 @@ const Step = () => {
                         />
                     </div>
                 </InputGroup>
-            </Form>
-        </StepComponent>
+            </div>
+        </Form>
     )
 }
 const Step1 = (props: StepComponentProps) => {
     console.log({ props });
     return (
         <div className="step">
-            <Step />
+            <Step {...props} />
 
             <div className='stepButtons'>
                 {
