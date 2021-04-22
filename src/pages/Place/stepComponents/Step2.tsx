@@ -20,7 +20,12 @@ const Content = () => {
             <div className='column2 column'>
                 <h2>Beira Mar Fortaleza</h2>
                 <p>Praia/ Esporte/ Lazer</p>
+                
+                <div>
+                    <p></p>
+                </div>
             </div>
+            
         </div>
     )
 }

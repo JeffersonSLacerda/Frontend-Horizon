@@ -10,7 +10,7 @@ const Step = () => {
         <div>
             <Form id='step3'>
                 <div>
-                    <Form.Label><b>Preço</b></Form.Label>
+                    <Form.Label className='label'><b>Preço</b></Form.Label>
                     <InputGroup
 
                         className="price-input-group">
@@ -32,7 +32,7 @@ const Step = () => {
                 </div>
 
                 <div>
-                    <Form.Label><b>Horário de funcionamento</b></Form.Label>
+                    <Form.Label className='label'><b>Horário de funcionamento</b></Form.Label>
                     <div className='time-div'>
                         <TimePicker className='time-picker' start="00:00" end="24:00" step={30} />
                         <TimePicker className='time-picker' start="00:00" end="24:00" step={30} />
@@ -48,7 +48,7 @@ const Step = () => {
                 </div>
 
                 <div>
-                    <Form.Label><b>Melhor horário de visita</b></Form.Label>
+                    <Form.Label className='label'><b>Melhor horário de visita</b></Form.Label>
                     <div className='time-div'>
                         <TimePicker className='time-picker' start="00:00" end="24:00" step={30} />
                         <TimePicker className='time-picker' start="00:00" end="24:00" step={30} />

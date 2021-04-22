@@ -18,8 +18,10 @@
 
     }
     label{
-        padding-right: 1em;
-        width: 150px;
+    }
+    .label{
+        width: 25% !important;
+        
     }
     
 }
@@ -31,7 +33,6 @@
     width: 50vw;
     height: 65%;
     .star-rating-div{
-        padding-right: 3em;
     }
     .stepButtons {
         display: flex;
@@ -59,11 +60,13 @@
     .checks {
         display: flex;
         flex-direction: row;
-        justify-content: space-around;
-        
+        justify-content: space-between;
+        width: 80%;
+        align-self: center;
         label{
-            text-align: left;
-            padding-left: 3em;
+            text-align: center;
+            margin: 0 80px;
+            
         }
         
     }
@@ -80,13 +83,7 @@
         align-self: center;
 
     }
-    .label{
-        padding: 0 1em;
-        align-self: center !important;
-        width: 150px !important;
-        justify-content: center;
-        align-items: center;
-    }
+    
     button{
         font-size: 1rem;
         border: none;

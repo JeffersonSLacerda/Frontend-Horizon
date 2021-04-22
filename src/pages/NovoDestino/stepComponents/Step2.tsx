@@ -17,7 +17,8 @@ const Step = () => {
     return (
         <Form className='step'>
             <div className='step2component'>
-                <Form.Label>
+                <Form.Label
+                    className='label'>
                     <b>Tags</b>
                 </Form.Label>
 
@@ -36,7 +37,7 @@ const Step = () => {
             </div>
 
             <div className='step2component'>
-                <Form.Label>
+                <Form.Label className='label'>
                     <b>Sua avaliação</b>
                 </Form.Label>
                 <StarRatings
@@ -53,7 +54,8 @@ const Step = () => {
                 />
             </div>
             <div className='step2component'>
-                <Form.Label><b>Deseja que apareça seu nome como divulgador do local?</b></Form.Label>
+            <Form.Label className='label'>
+                    <b>Deseja que apareça seu nome como divulgador do local?</b></Form.Label>
                 <div className='checks'>
                     <Form.Check
                         className='radiobutton'
