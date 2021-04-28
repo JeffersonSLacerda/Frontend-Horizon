@@ -1,6 +1,6 @@
 import React from 'react'
 import Header from '../../../components/Header'
-import './style.scss'
+import './step1.scss'
 import symbol from '../../../assets/Symbol.png'
 import img2 from '../../../assets/img2.jpg'
 import StarRatings from 'react-star-ratings'
@@ -206,7 +206,7 @@ const Step1 = (props: StepComponentProps) => {
     })
 
     return (
-        <div id='place'>
+        <div id='step1-place'>
             <Step />
 
             {

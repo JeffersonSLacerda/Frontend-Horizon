@@ -1,8 +1,8 @@
-import React from "react";
+import React, {useEffect, useState, useCallback} from "react";
 import { StepComponentProps } from "../lib-ts";
 import { Form, ButtonGroup, InputGroup, FormControl, Dropdown, DropdownButton } from 'react-bootstrap'
 import ReactTooltip from 'react-tooltip'
-import { useState } from 'react'
+import axios from "axios";
 interface UfData {
     id: number;
     sigla: string;
@@ -27,7 +27,29 @@ const Step = (props: StepComponentProps) => {
     const [local, setLocal] = useState('')
     const [uf, setUf] = useState('')
     const [rua, setRua] = useState('')
-    console.log(city)
+    const [type, setType] = useState('')
+    
+    const [ufOptions, setUfOptions] = useState({});
+    const [cityOptions, setCityOptions] = useState([]);
+
+    const loadUfOptions = useCallback(async () => {
+        const response = await axios.get(
+            'https://servicodados.ibge.gov.br/api/v1/localidades/estados'
+
+        )
+        const data = response.data.map((uf: UfData) => {
+            return {
+                value: uf.sigla,
+                label: uf.sigla
+            }
+        })
+        setUfOptions(data)
+    }, [])
+    useEffect(()=> {
+        loadUfOptions()
+        console.log(ufOptions)
+    }, [loadUfOptions])
+    
     return (
         <Form className='step'>
             <div className='checks'>
@@ -37,6 +59,9 @@ const Step = (props: StepComponentProps) => {
                     id='raiz'
                     label='Turismo Raiz'
                     name='turismoTipo'
+                    onChange={(event)=>{
+                        setType(event.target.value)
+                    }}
                 />
                 <Form.Check
                     className='radiobutton'
@@ -49,11 +74,16 @@ const Step = (props: StepComponentProps) => {
             <div>
                 <Form.Label
                     className='label'
-                ><b>Cidade e Estado</b></Form.Label>
+                ><b>Selecionar Estado e Cidade</b></Form.Label>
 
                 <InputGroup>
                     <FormControl
-                        onChange={props.handleChange}
+                        onChange={(event)=> {
+                            props.setState("city", event.target.value)
+
+                            props.handleChange
+                            
+                        }}
                         value={props.getState("city", "")}
                         name='city'
                         placeholder="Cidade"
@@ -62,36 +92,11 @@ const Step = (props: StepComponentProps) => {
                     />
 
                     <select
-
                         id="address_state" className="form-control" name="address_state" >
                         <option selected>Escolher...</option>
-                        <option value="AC">Acre</option>
-                        <option value="AL">Alagoas</option>
-                        <option value="AP">Amapá</option>
-                        <option value="AM">Amazonas</option>
-                        <option value="BA">Bahia</option>
-                        <option value="CE">Ceará</option>
-                        <option value="DF">Distrito Federal</option>
-                        <option value="ES">Espírito Santo</option>
-                        <option value="GO">Goías</option>
-                        <option value="MA">Maranhão</option>
-                        <option value="MT">Mato Grosso</option>
-                        <option value="MS">Mato Grosso do Sul</option>
-                        <option value="MG">Minas Gerais</option>
-                        <option value="PA">Pará</option>
-                        <option value="PB">Paraíba</option>
-                        <option value="PR">Paraná</option>
-                        <option value="PE">Pernambuco</option>
-                        <option value="PI">Piauí</option>
-                        <option value="RJ">Rio de Janeiro</option>
-                        <option value="RN">Rio Grande do Norte</option>
-                        <option value="RS">Rio Grande do Sul</option>
-                        <option value="RO">Rondônia</option>
-                        <option value="RR">Roraíma</option>
-                        <option value="SC">Santa Catarina</option>
-                        <option value="SP">São Paulo</option>
-                        <option value="SE">Sergipe</option>
-                        <option value="TO">Tocantins</option>
+                        {
+                            
+                        }
                     </select>
                 </InputGroup>
             </div>

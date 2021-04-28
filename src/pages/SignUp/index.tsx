@@ -83,7 +83,7 @@ const SignUp: React.FC = () => {
       };
     });
 
-    setCityOptions(data);
+    console.log(data)
   }, []);
 
   const handleSubmit = useCallback(
