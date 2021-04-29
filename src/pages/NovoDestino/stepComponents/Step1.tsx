@@ -1,4 +1,4 @@
-import React, {useEffect, useState, useCallback} from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import { StepComponentProps } from "../lib-ts";
 import { Form, ButtonGroup, InputGroup, FormControl, Dropdown, DropdownButton } from 'react-bootstrap'
 import ReactTooltip from 'react-tooltip'
@@ -28,7 +28,7 @@ const Step = (props: StepComponentProps) => {
     const [uf, setUf] = useState('')
     const [rua, setRua] = useState('')
     const [type, setType] = useState('')
-    
+
     const [ufOptions, setUfOptions] = useState({});
     const [cityOptions, setCityOptions] = useState([]);
 
@@ -45,11 +45,11 @@ const Step = (props: StepComponentProps) => {
         })
         setUfOptions(data)
     }, [])
-    useEffect(()=> {
+    useEffect(() => {
         loadUfOptions()
         console.log(ufOptions)
     }, [loadUfOptions])
-    
+
     return (
         <Form className='step'>
             <div className='checks'>
@@ -59,7 +59,7 @@ const Step = (props: StepComponentProps) => {
                     id='raiz'
                     label='Turismo Raiz'
                     name='turismoTipo'
-                    onChange={(event)=>{
+                    onChange={(event) => {
                         setType(event.target.value)
                     }}
                 />
@@ -73,16 +73,17 @@ const Step = (props: StepComponentProps) => {
             </div>
             <div>
                 <Form.Label
+                    style={{ marginRight: '10px' }}
                     className='label'
                 ><b>Selecionar Estado e Cidade</b></Form.Label>
 
                 <InputGroup>
                     <FormControl
-                        onChange={(event)=> {
+                        onChange={(event) => {
                             props.setState("city", event.target.value)
 
                             props.handleChange
-                            
+
                         }}
                         value={props.getState("city", "")}
                         name='city'
@@ -95,13 +96,14 @@ const Step = (props: StepComponentProps) => {
                         id="address_state" className="form-control" name="address_state" >
                         <option selected>Escolher...</option>
                         {
-                            
+
                         }
                     </select>
                 </InputGroup>
             </div>
             <div>
                 <Form.Label
+                    style={{ marginRight: '10px' }}
                     className='label'
                 ><b>Nome do Local</b></Form.Label>
                 <InputGroup>
@@ -123,6 +125,7 @@ const Step = (props: StepComponentProps) => {
             </div>
             <div>
                 <Form.Label className='label'
+                    style={{ marginRight: '10px' }}
                 ><b>Endereço do Local</b></Form.Label>
                 <InputGroup className='inputGroup'>
                     <InputGroup.Prepend>

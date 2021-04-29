@@ -23,11 +23,11 @@ const buttons = [
   },
   
 ];
-const Header: React.FC = () => {
+const Header: React.FC = (props:any) => {
   const history = useHistory()
 
   return (
-    <nav id='header'>
+    <nav {...props} id='header'>
       <div className='left-box'>
         <div className='links-left'>
           <img src={BrImage} />

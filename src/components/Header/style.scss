@@ -1,15 +1,18 @@
 #header{
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   display: flex;
   top: 0;
   position: fixed;
-  
-  height: 8vw;
+  align-items: center;
+  height: 6em;
   width: 100%;
-  justify-content: space-around;
   .left-box{
     display: flex;
     flex-direction: column;
-    padding: 1.25em;
+    margin: auto;
+    //adjust margin header
+    margin-right: 30em;
+    justify-content: space-between;
   }
   a{
     cursor: pointer;
@@ -23,7 +26,6 @@
   }
   img{
     margin: auto;
-    margin-right: 10px;
     height: min-content;
     width: min-content;
   }
