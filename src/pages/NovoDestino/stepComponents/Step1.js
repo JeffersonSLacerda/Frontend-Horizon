@@ -3,24 +3,8 @@ import { StepComponentProps } from "../lib-ts";
 import { Form, ButtonGroup, InputGroup, FormControl, Dropdown, DropdownButton } from 'react-bootstrap'
 import ReactTooltip from 'react-tooltip'
 import axios from "axios";
-interface UfData {
-    id: number;
-    sigla: string;
-}
 
-interface CityData {
-    id: number;
-    nome: string;
-}
-interface Step1Data {
-    nome: string;
-    rua: string;
-    numero: number;
-    bairro: string;
-    city: string;
-    uf: string;
-}
-const Step = (props: StepComponentProps) => {
+const Step = (props) => {
     const [city, setCity] = useState('')
     const [bairro, setBairro] = useState('')
     const [numero, setNumero] = useState('')
@@ -29,7 +13,7 @@ const Step = (props: StepComponentProps) => {
     const [rua, setRua] = useState('')
     const [type, setType] = useState('')
 
-    const [ufOptions, setUfOptions] = useState({});
+    const [ufOptions, setUfOptions] = useState([]);
     const [cityOptions, setCityOptions] = useState([]);
 
     const loadUfOptions = useCallback(async () => {
@@ -37,18 +21,32 @@ const Step = (props: StepComponentProps) => {
             'https://servicodados.ibge.gov.br/api/v1/localidades/estados'
 
         )
-        const data = response.data.map((uf: UfData) => {
-            return {
-                value: uf.sigla,
-                label: uf.sigla
-            }
+        const data = response.data.map((uf) => {
+            console.log(uf)
+            return uf
+
         })
         setUfOptions(data)
     }, [])
+    const loadCityOptions = useCallback(async (city) => {
+        const response = await axios.get(
+            `https://servicodados.ibge.gov.br/api/v1/localidades/estados/${city}/municipios`
+        );
+        const data = response.data.map((city) => {
+            console.log(city)
+            return city
+        })
+        setCityOptions(data)
+        console.log(cityOptions)
+    })
+
     useEffect(() => {
         loadUfOptions()
         console.log(ufOptions)
     }, [loadUfOptions])
+    useEffect(() => {
+        loadCityOptions(uf)
+    }, [uf])
 
     return (
         <Form className='step'>
@@ -78,27 +76,40 @@ const Step = (props: StepComponentProps) => {
                 ><b>Selecionar Estado e Cidade</b></Form.Label>
 
                 <InputGroup>
-                    <FormControl
-                        onChange={(event) => {
-                            props.setState("city", event.target.value)
-
+                    <select
+                        onChange={(e) => {
+                            setUf(e.target.value)
+                            props.setState("uf", e.target.value)
                             props.handleChange
-
+                        }}
+                        value={props.getState("uf")}
+                        name='uf'
+                        id="address_state" className="form-control" name="address_state" >
+                        {
+                            ufOptions.map((value) => (
+                                <option value={value.sigla}>
+                                    {value.nome}
+                                </option>
+                            ))
+                        }
+                    </select>
+                    <select
+                        onChange={(e) => {
+                            props.setState("city", e.target.value)
+                            props.handleChange
                         }}
                         value={props.getState("city", "")}
                         name='city'
-                        placeholder="Cidade"
-                        aria-label="Cidade"
-                        aria-describedby="basic-addon2"
-                    />
-
-                    <select
                         id="address_state" className="form-control" name="address_state" >
-                        <option selected>Escolher...</option>
                         {
-
+                            cityOptions.map((value) => (
+                                <option value={value.sigla}>
+                                    {value.nome}
+                                </option>
+                            ))
                         }
                     </select>
+
                 </InputGroup>
             </div>
             <div>
@@ -172,7 +183,7 @@ const Step = (props: StepComponentProps) => {
         </Form>
     )
 }
-const Step1 = (props: StepComponentProps) => {
+const Step1 = (props) => {
     console.log({ props });
     return (
         <div className="step">

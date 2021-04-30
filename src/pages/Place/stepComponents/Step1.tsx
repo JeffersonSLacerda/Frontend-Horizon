@@ -184,7 +184,7 @@ const Content = () => (
     </div>
 )
 const Title = (props: any) => (
-    <div className='title'>
+    <div className='title2'>
         <h3>O que fazer em <span style={{ color: 'var(--blue)' }}> {props.place}</span> ?</h3>
     </div>
 )
