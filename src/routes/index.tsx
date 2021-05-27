@@ -7,6 +7,7 @@ import SingIn from '../pages/SignIn';
 import Admin from '../pages/Admin';
 // import Dashboard from '../pages/dashboard';
 import Landing from '../pages/Landing'
+import Contato from "../pages/Contact"
 import SingUp from '../pages/SignUp';
 import NovoDestino from '../pages/NovoDestino'
 import Header from '../components/Header'
@@ -16,7 +17,9 @@ import SignUp from '../pages/SignUp'
 import Step2 from '../pages/Place/stepComponents/Step2'
 const Routes: React.FC = () => (
    <Switch>
+    <Route path="/" exact component={Landing} />
     <Route path="/viagem_aleatoria" exact component={Place} />
+    <Route path="/contact" exact component={Contato} />
     <Route path="/signin" exact component={SingIn} />
     <Route path="/signup" component={SignUp} />
     <Route exact path="/" component={Landing} />

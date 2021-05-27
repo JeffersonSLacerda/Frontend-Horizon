@@ -3,21 +3,32 @@ import { shade } from 'polished';
 
 import singInBackgroundImg from '../../assets/sign-in-background.jpg';
 
+export const Body = styled.div`
+  margin-top: -10px;
+  background-image: url("../../assets/dashboard1.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+`;
+
 export const Container = styled.div`
   height: 100vh;
   align-items: center;
   display: flex;
   align-items: stretch;
+  
 `;
 
 export const Content = styled.div`
   display: flex;
   flex-direction: column;
-
+  margin: 0 auto;
   justify-content: center;
-
   width: 100%;
   max-width: 700px;
+  background-image: url("../../assets/dashboard1.jpg");
+
 `;
 
 const appearFromLeft = keyframes`
@@ -44,16 +55,16 @@ export const AnimetedContainer = styled.div`
   }
 
   form {
-    margin: 80px 130px;
-    width: 340px;
+    margin: 80px;
     text-align: center;
+    color: white;
 
     h1 {
       margin-bottom: 24px;
     }
 
     a {
-      color: #000;
+      color: white;
       display: block;
       margin-top: 24px;
       text-decoration: none;
@@ -80,7 +91,9 @@ export const AnimetedContainer = styled.div`
 `;
 
 export const Background = styled.div`
-  flex: 1;
-  background: url(${singInBackgroundImg}) no-repeat center;
-  background-size: cover;
+margin-top: -10px;
+background-image: url("../../assets/dashboard1.jpg");
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;
 `;

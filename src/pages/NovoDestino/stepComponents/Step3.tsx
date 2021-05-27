@@ -2,7 +2,7 @@ import React from "react";
 import { StepComponentProps } from "../lib-ts";
 import { Form, ButtonGroup, InputGroup, FormControl, Dropdown, DropdownButton } from 'react-bootstrap'
 import ReactTooltip from 'react-tooltip'
-import TimePicker from 'react-bootstrap-time-picker';
+// import TimePicker from 'react-bootstrap-time-picker';
 import CurrencyInput from 'react-currency-input-field';
 
 const Step = () => {
@@ -33,10 +33,10 @@ const Step = () => {
 
                 <div>
                     <Form.Label className='label'><b>Horário de funcionamento</b></Form.Label>
-                    <div className='time-div'>
+                    {/* <div className='time-div'>
                         <TimePicker className='time-picker' start="00:00" end="24:00" step={30} />
                         <TimePicker className='time-picker' start="00:00" end="24:00" step={30} />
-                    </div>
+                    </div> */}
 
                     <a
                         data-tip data-for='localTip-2' >
@@ -50,9 +50,9 @@ const Step = () => {
                 <div>
                     <Form.Label className='label'><b>Melhor horário de visita</b></Form.Label>
                     <div className='time-div'>
-                        <TimePicker className='time-picker' start="00:00" end="24:00" step={30} />
-                        <TimePicker className='time-picker' start="00:00" end="24:00" step={30} />
-                        <TimePicker className='time-picker' start="00:00" end="24:00" step={30} />
+                        {/* /<TimePicker className='time-picker' start="00:00" end="24:00" step={30} /> */}
+                        {/* <TimePicker className='time-picker' start="00:00" end="24:00" step={30} /> */}
+                        {/* <TimePicker className='time-picker' start="00:00" end="24:00" step={30} /> */}
                     </div>
                     <a
                         data-tip data-for='localTip-2' >

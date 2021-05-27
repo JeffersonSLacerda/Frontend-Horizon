@@ -4,7 +4,7 @@ import { Form, ButtonGroup, InputGroup, FormControl, Dropdown, DropdownButton } 
 import ReactTooltip from 'react-tooltip'
 import axios from "axios";
 
-const Step = (props) => {
+const Step = (props: StepComponentProps) => {
     const [city, setCity] = useState('')
     const [bairro, setBairro] = useState('')
     const [numero, setNumero] = useState('')
@@ -21,32 +21,32 @@ const Step = (props) => {
             'https://servicodados.ibge.gov.br/api/v1/localidades/estados'
 
         )
-        const data = response.data.map((uf) => {
+        const data = response.data.map((uf : any) => {
             console.log(uf)
             return uf
 
         })
         setUfOptions(data)
     }, [])
-    const loadCityOptions = useCallback(async (city) => {
-        const response = await axios.get(
-            `https://servicodados.ibge.gov.br/api/v1/localidades/estados/${city}/municipios`
-        );
-        const data = response.data.map((city) => {
-            console.log(city)
-            return city
-        })
-        setCityOptions(data)
-        console.log(cityOptions)
-    })
+    // const loadCityOptions = useCallback(async (city) => {
+    //     const response = await axios.get(
+    //         `https://servicodados.ibge.gov.br/api/v1/localidades/estados/${city}/municipios`
+    //     );
+    //     const data = response.data.map((city) => {
+    //         console.log(city)
+    //         return city
+    //     })
+    //     setCityOptions(data)
+    //     console.log(cityOptions)
+    // })
 
-    useEffect(() => {
-        loadUfOptions()
-        console.log(ufOptions)
-    }, [loadUfOptions])
-    useEffect(() => {
-        loadCityOptions(uf)
-    }, [uf])
+    // useEffect(() => {
+    //     loadUfOptions()
+    //     console.log(ufOptions)
+    // }, [loadUfOptions])
+    // useEffect(() => {
+    //     loadCityOptions(uf)
+    // }, [uf])
 
     return (
         <Form className='step'>
@@ -82,16 +82,16 @@ const Step = (props) => {
                             props.setState("uf", e.target.value)
                             props.handleChange
                         }}
-                        value={props.getState("uf")}
+                        // value={props.getState("uf")}
                         name='uf'
-                        id="address_state" className="form-control" name="address_state" >
-                        {
+                        id="address_state" className="form-control"  >
+                        {/* {
                             ufOptions.map((value) => (
                                 <option value={value.sigla}>
                                     {value.nome}
                                 </option>
                             ))
-                        }
+                        } */}
                     </select>
                     <select
                         onChange={(e) => {
@@ -100,14 +100,14 @@ const Step = (props) => {
                         }}
                         value={props.getState("city", "")}
                         name='city'
-                        id="address_state" className="form-control" name="address_state" >
-                        {
+                        id="address_state" className="form-control"  >
+                        {/* {
                             cityOptions.map((value) => (
                                 <option value={value.sigla}>
                                     {value.nome}
                                 </option>
                             ))
-                        }
+                        } */}
                     </select>
 
                 </InputGroup>
@@ -183,7 +183,7 @@ const Step = (props) => {
         </Form>
     )
 }
-const Step1 = (props) => {
+const Step1 = (props: StepComponentProps) => {
     console.log({ props });
     return (
         <div className="step">

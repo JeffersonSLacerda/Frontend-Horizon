@@ -18,6 +18,7 @@ export const Container = styled.div`
 export const Content = styled.div`
   display: flex;
   flex-direction: column;
+  margin: 0 auto;
 
   justify-content: center;
 
@@ -50,16 +51,18 @@ export const AnimetedContainer = styled.div`
   }
 
   form {
-    margin: -40px 50px 20px 60px;
-    width: 340px;
+    margin-top: 80px;
+    // width: 340px;
     text-align: center;
+    color: white;
+
 
     h1 {
       margin-bottom: 24px;
     }
 
     a {
-      color: #000;
+      color: white;
       display: block;
       margin-top: 24px;
       text-decoration: none;
@@ -97,7 +100,7 @@ export const ContainerSelect = styled.div`
   padding: 16px;
   width: 100%;
   padding-left: 10px;
-
+  background-color:white;
   display: flex;
   align-items: center;
 
@@ -156,4 +159,12 @@ export const Error = styled(Tooltip)`
       border-color: #c53030 transparent;
     }
   }
+`;
+export const Body = styled.div`
+  margin-top: -10px;
+  background-image: url("../../assets/dashboard1.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
 `;

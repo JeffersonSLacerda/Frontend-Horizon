@@ -91,7 +91,7 @@ const Content = () => {
         let alpha: number = scrollTop / 1000
         console.log((scrollTop) / 1000)
 
-        return rgba(0, 0, 0, Math.min(Math.max(alpha, 0), 0.35))
+        // return rgba(0, 0, 0, Math.min(Math.max(alpha, 0), 0.35))
       }
     })
   })
@@ -117,7 +117,7 @@ const Landing: React.FC = () => {
   return (
     <div id='body'>
       <div id='bg' className='bg'>
-        <LandingHeader />
+        <LandingHeader showSearch={false}/>
         <Content />
       </div>
       <div>

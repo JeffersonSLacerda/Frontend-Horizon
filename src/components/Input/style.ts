@@ -13,7 +13,7 @@ export const Container = styled.div<ContainerProps>`
   padding: 16px;
   width: 100%;
   padding-left: 10px;
-
+  background-color: white;
   border: 1px solid;
 
   display: flex;

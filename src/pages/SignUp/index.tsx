@@ -5,6 +5,8 @@ import { Form } from '@unform/web';
 import * as Yup from 'yup';
 import axios from 'axios';
 import { Link, useHistory } from 'react-router-dom';
+import LandingHeader from '../../components/LandingHeader'
+
 
 import api from '../../services/api';
 
@@ -158,64 +160,60 @@ const SignUp: React.FC = () => {
   }, [loadUfOptions]);
 
   return (
-    <Container>
-      <Background />
+    <div id="body">
+      <Container>
+        <LandingHeader showSearch={false}/>
+        <Content>
+          <AnimetedContainer>
 
-      <Content>
-        <AnimetedContainer>
-          <img src={logoImg} alt="Horizon" />
+            <Form ref={formRef} onSubmit={handleSubmit}>
+              <h1>Faça seu cadastro</h1>
 
-          <Form ref={formRef} onSubmit={handleSubmit}>
-            <h1>Faça seu cadastro</h1>
+              <Input name="firstName" icon={FiUser} placeholder="Nome e sobrenome" />
+              <Input name="email" icon={FiMail} placeholder="E-mail" />
+              <ContainerSelect>
+                <FiHome />
+                <Select
+                  name="city"
+                  options={cityOptions}
+                  placeholder="Selecione uma cidade"
+                  maxMenuHeight={100}
+                  className="react-select-city"
+                  isField={isField}
+                  isFocused={isFocused}
+                  onFocus={handleInputFocus}
+                  onBlur={handleInputBlur}
+                />
+                <Select
+                  name="uf"
+                  options={ufOptions}
+                  onChange={handleLoadCityOptions}
+                  maxMenuHeight={100}
+                  placeholder="UF"
+                  className="react-select-uf"
+                  isField={isField}
+                  isFocused={isFocused}
+                  onFocus={handleInputFocus}
+                  onBlur={handleInputBlur}
+                />
+              </ContainerSelect>
 
-            <Input name="firstName" icon={FiUser} placeholder="Primeiro nome" />
-            <Input name="lastName" icon={FiUser} placeholder="Último nome" />
-            <Input name="email" icon={FiMail} placeholder="E-mail" />
-
-            <Input
-              name="password"
-              icon={FiLock}
-              type="password"
-              placeholder="Senha"
-            />
-
-            <ContainerSelect>
-              <FiHome />
-              <Select
-                name="city"
-                options={cityOptions}
-                placeholder="Selecione uma cidade"
-                maxMenuHeight={100}
-                className="react-select-city"
-                isField={isField}
-                isFocused={isFocused}
-                onFocus={handleInputFocus}
-                onBlur={handleInputBlur}
+              <Input
+                name="password"
+                icon={FiLock}
+                type="password"
+                placeholder="Senha"
               />
-              <Select
-                name="uf"
-                options={ufOptions}
-                onChange={handleLoadCityOptions}
-                maxMenuHeight={100}
-                placeholder="UF"
-                className="react-select-uf"
-                isField={isField}
-                isFocused={isFocused}
-                onFocus={handleInputFocus}
-                onBlur={handleInputBlur}
-              />
-            </ContainerSelect>
 
-            <Button type="submit">Cadastrar</Button>
-          </Form>
+              
+              <Button type="submit">Cadastrar</Button>
+            </Form>
 
-          <Link to="/">
-            <FiArrowLeft />
-            Voltar para o login
-          </Link>
-        </AnimetedContainer>
-      </Content>
-    </Container>
+          
+          </AnimetedContainer>
+        </Content>
+      </Container>
+    </div>
   );
 };
 

@@ -1,4 +1,5 @@
 #contact {
+
     display: flex;
     height: 100vh;
     align-items: center;
@@ -21,16 +22,15 @@
     }
     
     .content{
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        width: 50vw;
+        margin: 0  auto;
+
     }
+   
     .info{
         display: flex;
         flex-direction: row;
         align-self: center;
+        margin-top: 80px;
         div{
             margin: 1em;
         }
@@ -55,8 +55,15 @@
         width: 100%;
     }
     .message{
-        height: 300px;
+        height: 250px;
         width: 30vw;
     }
  
+}
+#body {
+    margin-top: -10px;
+    background-image: url("../../assets/dashboard1.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }

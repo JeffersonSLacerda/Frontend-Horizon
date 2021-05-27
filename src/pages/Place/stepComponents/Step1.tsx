@@ -192,7 +192,7 @@ const Step = () => {
     const location: any = useLocation()
 
     return (<>
-        <Header />
+        {/* <Header /> */}
         <Title place={location.state.place} />
         <Divider />
         <Content />

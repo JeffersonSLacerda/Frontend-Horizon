@@ -1,6 +1,8 @@
 import Header from '../../../components/Header'
 import fortaleza from '../../../assets/fortaleza.jpg'
 import MapContainer from '../../../components/MapContainer'
+import LandingHeader from '../../../components/LandingHeader'
+
 import './step2.scss'
 
 const Content = () => {
@@ -45,9 +47,10 @@ const Content = () => {
 const Step2 = (props: any) => {
     return (
         <div className='step2'>
+                        <LandingHeader showSearch={true}/>
+
             <h1>O que fazer em Fortaleza - CE?</h1>
 
-            <Header />
             <Content />
         </div>
     )

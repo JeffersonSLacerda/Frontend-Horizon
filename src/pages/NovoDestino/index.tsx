@@ -1,5 +1,6 @@
 import React from 'react'
 import Header from '../../components/Header'
+import LandingHeader from '../../components/LandingHeader'
 import { Form, InputGroup, FormControl, Dropdown, DropdownButton } from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ReactTooltip from 'react-tooltip'
@@ -58,10 +59,10 @@ const NovoDestino = () => {
 	return (
 
 		<div className='background'>
-
-			<Header style={{
+			<LandingHeader showSearch={true}/>
+			{/* <Header style={{
 				backgroundColor: 'white',
-			}} />
+			}} /> */}
 			<Form
 				className='step-content'>
 				<Title />

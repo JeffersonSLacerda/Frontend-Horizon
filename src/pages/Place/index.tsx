@@ -1,5 +1,6 @@
 import React from 'react'
 import Header from '../../components/Header'
+import LandingHeader from '../../components/LandingHeader'
 import symbol from '../../assets/Symbol.png'
 import img2 from '../../assets/img2.jpg'
 import StarRatings from 'react-star-ratings'
@@ -42,7 +43,9 @@ const Place = () => {
     const location = useLocation()
 
     return (
+
         <div id='place'>
+            <LandingHeader showSearch={true}/>
             <Steps >
                 <Step component={Step1}/>
                 <Step component={Step2}/>
