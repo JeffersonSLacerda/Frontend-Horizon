@@ -120,9 +120,7 @@ const Landing: React.FC = () => {
         <LandingHeader showSearch={false}/>
         <Content />
       </div>
-      <div>
-        <Contact />
-      </div>
+     
     </div>
   );
 };

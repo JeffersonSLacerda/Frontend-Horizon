@@ -16,37 +16,37 @@ const Step = (props: StepComponentProps) => {
     const [ufOptions, setUfOptions] = useState([]);
     const [cityOptions, setCityOptions] = useState([]);
 
-    const loadUfOptions = useCallback(async () => {
-        const response = await axios.get(
-            'https://servicodados.ibge.gov.br/api/v1/localidades/estados'
-
-        )
-        const data = response.data.map((uf : any) => {
-            console.log(uf)
-            return uf
-
-        })
-        setUfOptions(data)
-    }, [])
-    // const loadCityOptions = useCallback(async (city) => {
+    // const loadUfOptions = useCallback(async () => {
     //     const response = await axios.get(
-    //         `https://servicodados.ibge.gov.br/api/v1/localidades/estados/${city}/municipios`
-    //     );
-    //     const data = response.data.map((city) => {
-    //         console.log(city)
-    //         return city
+    //         'https://servicodados.ibge.gov.br/api/v1/localidades/estados'
+
+    //     )
+    //     const data = response.data.map((uf : any) => {
+    //         console.log(uf)
+    //         return uf
+
     //     })
-    //     setCityOptions(data)
-    //     console.log(cityOptions)
-    // })
+    //     setUfOptions(data)
+    // }, [])
+    const loadCityOptions = useCallback(async (city) => {
+        const response = await axios.get(
+            `https://servicodados.ibge.gov.br/api/v1/localidades/estados/${city}/municipios`
+        );
+        const data = response.data.map(() => (cidade :any) => {
+            console.log( cidade)
+            return cidade
+        })
+        setCityOptions(data)
+        console.log("cidades: " +cityOptions)
+    }, [city])
 
     // useEffect(() => {
     //     loadUfOptions()
     //     console.log(ufOptions)
     // }, [loadUfOptions])
-    // useEffect(() => {
-    //     loadCityOptions(uf)
-    // }, [uf])
+    useEffect(() => {
+        loadCityOptions(uf)
+    }, [uf])
 
     return (
         <Form className='step'>
@@ -79,19 +79,19 @@ const Step = (props: StepComponentProps) => {
                     <select
                         onChange={(e) => {
                             setUf(e.target.value)
-                            props.setState("uf", e.target.value)
+                            props.setState("uf", "")
                             props.handleChange
                         }}
-                        // value={props.getState("uf")}
+                        value={props.getState("uf", "")}
                         name='uf'
                         id="address_state" className="form-control"  >
-                        {/* {
-                            ufOptions.map((value) => (
-                                <option value={value.sigla}>
-                                    {value.nome}
-                                </option>
-                            ))
-                        } */}
+                        {
+                            // ufOptions.map((value: any) => (
+                            //     <option value={value.sigla}>
+                            //         {value.nome}
+                            //     </option>
+                            // ))
+                        }
                     </select>
                     <select
                         onChange={(e) => {
@@ -101,13 +101,13 @@ const Step = (props: StepComponentProps) => {
                         value={props.getState("city", "")}
                         name='city'
                         id="address_state" className="form-control"  >
-                        {/* {
-                            cityOptions.map((value) => (
-                                <option value={value.sigla}>
-                                    {value.nome}
-                                </option>
-                            ))
-                        } */}
+                        {
+                            // cityOptions.map((value: any) => (
+                            //     <option value={value.sigla}>
+                            //         {value.nome}
+                            //     </option>
+                            // ))
+                        }
                     </select>
 
                 </InputGroup>

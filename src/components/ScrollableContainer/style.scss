@@ -3,10 +3,12 @@
     --blue85: #b3e8ff;
 
 }
-body{
-    overflow: hidden !important;
-}
+// body{
+//     overflow: hidden;
+// }
 #scrollable {
+    overflow: hidden;
+
     display: flex;
     justify-content: center;
     height: 85vh;
