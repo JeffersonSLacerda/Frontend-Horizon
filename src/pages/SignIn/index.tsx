@@ -25,7 +25,7 @@ interface SignInFormData {
 const SignIn: React.FC = () => {
   const formRef = useRef<FormHandles>(null);
 
-  const { signIn } = useAuth();
+  const { signIn, user } = useAuth();
   const { addToast } = useToast();
   const history = useHistory();
 
@@ -43,12 +43,14 @@ const SignIn: React.FC = () => {
           abortEarly: false,
         });
 
-        history.push('/dashboard');
-
         await signIn({
           email: data.email,
           password: data.password,
         });
+
+        if (user) {
+          history.push('/dashboard');
+        }
       } catch (err) {
         if (err instanceof Yup.ValidationError) {
           const errors = getValidationErrors(err);

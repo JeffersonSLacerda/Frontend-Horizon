@@ -6,7 +6,6 @@ import TagsInput from 'react-tagsinput'
 import 'react-tagsinput/react-tagsinput.css'
 import StarRatings from 'react-star-ratings'
 
-
 const Step = () => {
     const [tags, setTags] = useState(['natureza', 'árvores', 'lagoa'])
     const [rating, setRating] = useState(0)

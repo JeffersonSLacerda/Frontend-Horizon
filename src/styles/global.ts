@@ -9,7 +9,7 @@ export default createGlobalStyle`
   }
   :root{
     --blue: #009bde;
-
+    overflow-y: scroll;
   }
   body {
     background: #fff;
